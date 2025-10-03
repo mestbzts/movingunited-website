@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun, Instagram, Facebook } from "lucide-react";
 import { useTheme } from "next-themes";
 import logo from "@/assets/moving-united-logo.png";
 
@@ -45,6 +45,25 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-4">
+            {/* Social Links (Desktop) */}
+            <a
+              href="https://instagram.com/yourhandle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex h-10 w-10 items-center justify-center rounded-md hover:bg-accent text-foreground/80 hover:text-primary transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a
+              href="https://facebook.com/yourpage"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex h-10 w-10 items-center justify-center rounded-md hover:bg-accent text-foreground/80 hover:text-primary transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
             <Button
               variant="ghost"
               size="icon"
@@ -88,6 +107,25 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="flex items-center gap-4 pt-4 border-t">
+              {/* Social Links (Mobile) */}
+              <a
+                href="https://instagram.com/yourhandle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-10 w-10 flex items-center justify-center rounded-md hover:bg-accent text-foreground/80 hover:text-primary transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://facebook.com/yourpage"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-10 w-10 flex items-center justify-center rounded-md hover:bg-accent text-foreground/80 hover:text-primary transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
               <Button
                 variant="ghost"
                 size="icon"
