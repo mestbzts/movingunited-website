@@ -93,7 +93,7 @@ const Home = () => {
             <Button size="lg" asChild className="bg-white text-primary hover:bg-white/90">
               <Link to="/contact">Get Free Quote</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="border-white text-white hover:bg-white hover:text-primary">
+            <Button size="lg" asChild className="bg-primary text-white hover:bg-primary/90">
               <Link to="/services">Our Services</Link>
             </Button>
           </div>
