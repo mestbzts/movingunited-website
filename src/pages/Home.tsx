@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Package, Building2, Warehouse, CheckCircle, Phone, FileText, Truck, Wrench, MapPin, Instagram } from "lucide-react";
 import InstagramFeedCarousel from "@/components/InstagramFeedCarousel";
+import Testimonials from "@/components/Testimonials";
 import heroImage from "@/assets/hero-moving.jpg";
 import residentialImage from "@/assets/residential-moving.jpg";
 import commercialImage from "@/assets/commercial-moving.jpg";
@@ -217,6 +218,13 @@ const Home = () => {
               <span>@movingunited.ca</span>
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials + Comment Form */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <Testimonials />
         </div>
       </section>
     </div>
