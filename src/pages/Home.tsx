@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Package, Building2, Warehouse, CheckCircle, Phone, FileText, Truck, Wrench, MapPin, Instagram } from "lucide-react";
+import InstagramFeedCarousel from "@/components/InstagramFeedCarousel";
 import heroImage from "@/assets/hero-moving.jpg";
 import residentialImage from "@/assets/residential-moving.jpg";
 import commercialImage from "@/assets/commercial-moving.jpg";
@@ -201,7 +202,10 @@ const Home = () => {
             <h2 className="text-4xl font-bold mb-3">Follow Us on Instagram</h2>
             <p className="text-lg text-muted-foreground">See our latest moves, images, and reels.</p>
           </div>
-          <div className="flex justify-center">
+          <div className="mb-8">
+            <InstagramFeedCarousel />
+          </div>
+          <div className="text-center">
             <a
               href="https://www.instagram.com/movingunited.ca/"
               target="_blank"
