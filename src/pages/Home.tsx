@@ -71,13 +71,13 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[650px] md:h-[720px] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: `linear-gradient(rgba(10, 43, 83, 0.7), rgba(31, 97, 94, 0.7)), url(${heroImage})`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center center',
+            backgroundPosition: 'center 60%',
           }}
         />
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
