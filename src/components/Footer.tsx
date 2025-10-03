@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/moving-united-logo.png";
 
 const Footer = () => {
@@ -15,6 +15,26 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground">
               Professional moving services you can trust. Making your move smooth and stress-free.
             </p>
+            <div className="flex items-center gap-3 mt-4">
+              <a
+                href="https://www.facebook.com/profile.php?id=61580116989375"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-foreground/80 hover:text-primary transition-colors"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/movingunited.ca/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-foreground/80 hover:text-primary transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           <div>

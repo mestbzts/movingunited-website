@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Moon, Sun, Instagram, Facebook } from "lucide-react";
+import { Menu, X, Moon, Sun, Facebook, Instagram } from "lucide-react";
 import { useTheme } from "next-themes";
 import logo from "@/assets/moving-united-logo.png";
 
@@ -42,28 +42,29 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+            <div className="flex items-center gap-3 ml-2">
+              <a
+                href="https://www.facebook.com/profile.php?id=61580116989375"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-foreground/80 hover:text-primary transition-colors"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/movingunited.ca/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-foreground/80 hover:text-primary transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           <div className="flex items-center gap-4">
-            {/* Social Links (Desktop) */}
-            <a
-              href="https://instagram.com/yourhandle"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:flex h-10 w-10 items-center justify-center rounded-md hover:bg-accent text-foreground/80 hover:text-primary transition-colors"
-              aria-label="Instagram"
-            >
-              <Instagram className="h-5 w-5" />
-            </a>
-            <a
-              href="https://www.facebook.com/profile.php?id=61580116989375"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:flex h-10 w-10 items-center justify-center rounded-md hover:bg-accent text-foreground/80 hover:text-primary transition-colors"
-              aria-label="Facebook"
-            >
-              <Facebook className="h-5 w-5" />
-            </a>
             <Button
               variant="ghost"
               size="icon"
@@ -107,25 +108,6 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="flex items-center gap-4 pt-4 border-t">
-              {/* Social Links (Mobile) */}
-              <a
-                href="https://www.instagram.com/movingunited.ca/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-10 w-10 flex items-center justify-center rounded-md hover:bg-accent text-foreground/80 hover:text-primary transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="https://facebook.com/yourpage"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-10 w-10 flex items-center justify-center rounded-md hover:bg-accent text-foreground/80 hover:text-primary transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
               <Button
                 variant="ghost"
                 size="icon"
@@ -134,6 +116,24 @@ const Navbar = () => {
                 <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               </Button>
+              <a
+                href="https://www.facebook.com/profile.php?id=61580116989375"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-foreground/80 hover:text-primary transition-colors"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/movingunited.ca/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-foreground/80 hover:text-primary transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
               <Button asChild className="flex-1">
                 <Link to="/contact" onClick={() => setIsOpen(false)}>Get a Quote</Link>
               </Button>

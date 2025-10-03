@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Package, Building2, Warehouse, CheckCircle, Phone, FileText, Truck, Wrench, MapPin } from "lucide-react";
+import { ArrowRight, Package, Building2, Warehouse, CheckCircle, Phone, FileText, Truck, Wrench, MapPin, Instagram } from "lucide-react";
 import heroImage from "@/assets/hero-moving.jpg";
 import residentialImage from "@/assets/residential-moving.jpg";
 import commercialImage from "@/assets/commercial-moving.jpg";
@@ -191,6 +191,28 @@ const Home = () => {
           <Button size="lg" asChild className="bg-white text-primary hover:bg-white/90">
             <Link to="/contact">Contact Us Today</Link>
           </Button>
+        </div>
+      </section>
+
+      {/* Instagram Section */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold mb-3">Follow Us on Instagram</h2>
+            <p className="text-lg text-muted-foreground">See our latest moves, images, and reels.</p>
+          </div>
+          <div className="flex justify-center">
+            <a
+              href="https://www.instagram.com/movingunited.ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary hover:underline"
+              aria-label="Visit our Instagram profile"
+            >
+              <Instagram className="h-6 w-6" />
+              <span>@movingunited.ca</span>
+            </a>
+          </div>
         </div>
       </section>
     </div>
