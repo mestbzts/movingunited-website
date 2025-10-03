@@ -19,7 +19,7 @@ const STORAGE_KEY = "mu_testimonials";
 const defaultSeed: Testimonial[] = [
   {
     id: "seed-1",
-    name: "Tech Company CEO",
+    name: "Autokey Express",
     comment:
       "Moving United made our office relocation seamless. Their team was professional, efficient, and everything arrived safely.",
     rating: 5,
@@ -27,7 +27,7 @@ const defaultSeed: Testimonial[] = [
   },
   {
     id: "seed-2",
-    name: "Art Collector",
+    name: "Ayberk Tuna",
     comment:
       "I was nervous about moving my art collection, but Moving United's specialists handled everything with incredible care.",
     rating: 5,
@@ -35,7 +35,7 @@ const defaultSeed: Testimonial[] = [
   },
   {
     id: "seed-3",
-    name: "Property Manager",
+    name: "Natasha Tolymbekova",
     comment:
       "The coordination for our multi-family move was flawless. Everyone moved in on schedule without any issues.",
     rating: 5,
