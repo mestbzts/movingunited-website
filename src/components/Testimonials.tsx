@@ -41,6 +41,14 @@ const defaultSeed: Testimonial[] = [
     rating: 5,
     createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
   },
+  {
+    id: "seed-4",
+    name: "Martin Greystone",
+    comment:
+      "The lads did a great job and secured all my items. A very stressful moving day turned out to be very chill thanks to them. Nothing was damaged, and everything was put in its place. Thank you so much.”,
+    rating: 5,
+    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
+  },
 ];
 
 function loadTestimonials(): Testimonial[] {
