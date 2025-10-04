@@ -64,8 +64,8 @@ const Home = () => {
     "24/7 Customer Support",
     "Competitive Pricing",
     "Free Estimates",
-    "Packing & Unpacking Services",
-    "Climate-Controlled Storage",
+    "disassembly & reassembly Services",
+    "Insured Moves",
   ];
 
   return (
