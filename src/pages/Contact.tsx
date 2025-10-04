@@ -5,13 +5,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
-import AddressInput from "@/components/AddressInput";
 
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [currentAddress, setCurrentAddress] = useState("");
-  const [newAddress, setNewAddress] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,8 +20,8 @@ const Contact = () => {
       lastName: formData.get('lastName') as string,
       email: formData.get('email') as string,
       phone: formData.get('phone') as string,
-      currentAddress: currentAddress || formData.get('currentAddress') as string,
-      newAddress: newAddress || formData.get('newAddress') as string,
+      currentAddress: formData.get('currentAddress') as string,
+      newAddress: formData.get('newAddress') as string,
       moveDate: formData.get('moveDate') as string,
       serviceType: formData.get('serviceType') as string,
       additionalDetails: formData.get('additionalDetails') as string,
@@ -61,8 +58,6 @@ Submitted on: ${new Date().toLocaleString()}
 
       // Reset form
       e.currentTarget.reset();
-      setCurrentAddress("");
-      setNewAddress("");
     } catch (error) {
       toast({
         title: "Error",
@@ -137,23 +132,11 @@ Submitted on: ${new Date().toLocaleString()}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium mb-2">Current Address</label>
-                    <AddressInput
-                      name="currentAddress"
-                      placeholder="123 Current St"
-                      required
-                      value={currentAddress}
-                      onChange={setCurrentAddress}
-                    />
+                    <Input name="currentAddress" placeholder="123 Current St" required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">New Address</label>
-                    <AddressInput
-                      name="newAddress"
-                      placeholder="456 New Ave"
-                      required
-                      value={newAddress}
-                      onChange={setNewAddress}
-                    />
+                    <Input name="newAddress" placeholder="456 New Ave" required />
                   </div>
                 </div>
 
