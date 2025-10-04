@@ -77,7 +77,7 @@ const Home = () => {
           style={{
             backgroundImage: `linear-gradient(rgba(10, 43, 83, 0.7), rgba(31, 97, 94, 0.7)), url(${heroImage})`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center 60%',
+            backgroundPosition: 'center 40%',
           }}
         />
         <div className="relative z-10 container mx-auto px-4 text-center text-white">

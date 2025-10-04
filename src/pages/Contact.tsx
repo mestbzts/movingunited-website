@@ -4,16 +4,69 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast({
-      title: "Quote Request Sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      firstName: formData.get('firstName') as string,
+      lastName: formData.get('lastName') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      currentAddress: formData.get('currentAddress') as string,
+      newAddress: formData.get('newAddress') as string,
+      moveDate: formData.get('moveDate') as string,
+      serviceType: formData.get('serviceType') as string,
+      additionalDetails: formData.get('additionalDetails') as string,
+    };
+
+    try {
+      // Using a simple mailto approach for now - you can replace with EmailJS or other service
+      const subject = `Moving Quote Request from ${data.firstName} ${data.lastName}`;
+      const body = `
+New Moving Quote Request:
+
+Name: ${data.firstName} ${data.lastName}
+Email: ${data.email}
+Phone: ${data.phone}
+Current Address: ${data.currentAddress}
+New Address: ${data.newAddress}
+Move Date: ${data.moveDate}
+Service Type: ${data.serviceType}
+Additional Details: ${data.additionalDetails}
+
+Submitted on: ${new Date().toLocaleString()}
+      `.trim();
+
+      // Create mailto link
+      const mailtoLink = `mailto:info@movingunited.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open email client
+      window.open(mailtoLink);
+      
+      toast({
+        title: "Quote Request Prepared!",
+        description: "Your email client should open with the quote details. Please send the email to complete your request.",
+      });
+
+      // Reset form
+      e.currentTarget.reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "There was an error preparing your quote request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -57,63 +110,65 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium mb-2">First Name</label>
-                    <Input placeholder="John" required />
+                    <Input name="firstName" placeholder="John" required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Last Name</label>
-                    <Input placeholder="Doe" required />
+                    <Input name="lastName" placeholder="Doe" required />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium mb-2">Email</label>
-                    <Input type="email" placeholder="john@example.com" required />
+                    <Input name="email" type="email" placeholder="john@example.com" required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Phone</label>
-                    <Input type="tel" placeholder="(555) 123-4567" required />
+                    <Input name="phone" type="tel" placeholder="(555) 123-4567" required />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium mb-2">Current Address</label>
-                    <Input placeholder="123 Current St" required />
+                    <Input name="currentAddress" placeholder="123 Current St" required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">New Address</label>
-                    <Input placeholder="456 New Ave" required />
+                    <Input name="newAddress" placeholder="456 New Ave" required />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2">Move Date</label>
-                  <Input type="date" required />
+                  <Input name="moveDate" type="date" required />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2">Service Type</label>
-                  <select className="w-full px-4 py-2 rounded-md border bg-background">
-                    <option>Residential Moving</option>
-                    <option>Commercial Moving</option>
-                    <option>Office Relocation</option>
-                    <option>Staging</option>
-                    <option>Furniture Assembly</option>
-                    <option>Disposal Services</option>
+                  <select name="serviceType" className="w-full px-4 py-2 rounded-md border bg-background" required>
+                    <option value="">Select a service</option>
+                    <option value="Residential Moving">Residential Moving</option>
+                    <option value="Commercial Moving">Commercial Moving</option>
+                    <option value="Office Relocation">Office Relocation</option>
+                    <option value="Staging">Staging</option>
+                    <option value="Furniture Assembly">Furniture Assembly</option>
+                    <option value="Disposal Services">Disposal Services</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2">Additional Details</label>
                   <Textarea 
+                    name="additionalDetails"
                     placeholder="Tell us about your move (size of home/office, special items, etc.)" 
                     rows={5}
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full">
-                  Get Free Quote
+                <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? "Preparing Quote..." : "Get Free Quote"}
                 </Button>
               </form>
             </Card>
