@@ -137,7 +137,7 @@ const defaultSeed: Testimonial[] = [
     rating: 5,
     createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
   },
-  
+
 
 ];
 
@@ -260,7 +260,7 @@ export const Testimonials: React.FC = () => {
         </div>
       </section>
 
-      <section className="max-w-3xl mx-auto">
+      {/*<section className="max-w-3xl mx-auto">
         <Card className="p-8">
           <h3 className="text-2xl font-bold mb-6">Share Your Experience</h3>
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -294,12 +294,13 @@ export const Testimonials: React.FC = () => {
 
             <div>
               <label className="block text-sm font-medium mb-2">Your Comment</label>
-              <Textarea 
+              <Textarea
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                placeholder="Tell us about your experience with Moving United..." 
+                placeholder="Tell us about your experience with Moving United..."
                 rows={5}
                 required
+              />
               />
             </div>
 
@@ -309,6 +310,7 @@ export const Testimonials: React.FC = () => {
           </form>
         </Card>
       </section>
+      */}
     </div>
   );
 };
