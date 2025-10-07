@@ -81,12 +81,11 @@ const Home = () => {
           }}
         />
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-center leading-tight mb-8">
             Moving United
+            <br className="hidden sm:block" />
+            <span className="block text-primary">Your Move, Our Mission</span>
           </h1>
-          <p className="text-2xl md:text-3xl font-semibold mb-8">
-            Your Move. Our Mission.
-          </p>
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
             Professional moving services for residential and commercial needs. 
             We handle your belongings with care.
