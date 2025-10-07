@@ -92,7 +92,8 @@ const Projects = () => {
                 <img
                   src={project.images[0]}
                   alt={project.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-72 object-cover object-center"
+                  style={{ aspectRatio: "3/4" }}
                 />
               )}
               <div className="p-6">
