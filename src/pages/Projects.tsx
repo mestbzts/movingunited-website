@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import TiffEventImg from "@/assets/Tiff-event.jpg";
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Projects = () => {
       date: "September 2025",
       description: "Collaborated with Canapy Furniture, and successfully moved & staged their furniture to TIFF VIP Lounge.",
       highlights: ["15,000 sq ft office", "100+ workstations", "Server room relocation", "Weekend completion"],
-      images: ["movingunited-website/src/assets/Tiff-event.jpg"],
+      images: [TiffEventImg],
     },
     {
       title: "Luxury Home Move",
