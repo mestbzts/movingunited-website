@@ -14,7 +14,7 @@ const Projects = () => {
       date: "September 2025",
       description: "Collaborated with Canapy Furniture, and successfully moved & staged their furniture to TIFF VIP Lounge.",
       highlights: ["15,000 sq ft office", "100+ workstations", "Server room relocation", "Weekend completion"],
-      images: ["src/assets/Tiff-event.jpg"],
+      images: ["movingunited-website/src/assets/Tiff-event.jpg"],
     },
     {
       title: "Luxury Home Move",
