@@ -8,13 +8,13 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Downtown Office Relocation",
-      type: "Commercial",
-      location: "New York, NY",
-      date: "March 2024",
-      description: "Successfully relocated a 50-employee tech company to their new downtown office space with zero downtime.",
+      title: "TIFF VIP Lounge staging",
+      type: "Staging & Commercial",
+      location: "Toronto, ON",
+      date: "September 2025",
+      description: "Collaborated with Canapy Furniture, and successfully moved & staged their furniture to TIFF VIP Lounge.",
       highlights: ["15,000 sq ft office", "100+ workstations", "Server room relocation", "Weekend completion"],
-      images: ["/images/projects/office1.jpg", "/images/projects/office2.jpg"],
+      images: ["src/assets/Tiff-event.jpg"],
     },
     {
       title: "Luxury Home Move",
