@@ -132,7 +132,7 @@ Submitted on: ${new Date().toLocaleString()}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium mb-2">Current Address</label>
-                    <Input name="currentAddress" placeholder="123 Current St" required />
+                    <Input name="currentAddress" placeholder="123 church St" required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">New Address</label>
@@ -155,6 +155,7 @@ Submitted on: ${new Date().toLocaleString()}
                     <option value="Staging">Staging</option>
                     <option value="Furniture Assembly">Furniture Assembly</option>
                     <option value="Disposal Services">Disposal Services</option>
+                    <option value="Other">Disposal Services</option>
                   </select>
                 </div>
 
