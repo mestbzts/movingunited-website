@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import TiffEventImg from "@/assets/Tiff-event.jpg";
+import luxuryHome from "@/assets/ilkin.jpeg";
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -14,17 +15,17 @@ const Projects = () => {
       location: "Toronto, ON",
       date: "September 2025",
       description: "Collaborated with Canapy Furniture, and successfully moved & staged their furniture to TIFF VIP Lounge.",
-      highlights: ["15,000 sq ft office", "100+ workstations", "Server room relocation", "Weekend completion"],
+      highlights: ["Loading the furniture", "Unloading in the venue", "Placing them according to the design plan", "Touching up the final setup"],
       images: [TiffEventImg],
     },
     {
       title: "Luxury Home Move",
       type: "Residential",
-      location: "Beverly Hills, CA",
-      date: "February 2024",
-      description: "White-glove moving service for a 8,000 sq ft luxury residence with valuable art collection and antiques.",
-      highlights: ["Climate-controlled transport", "Art handling specialists", "Custom crating", "Storage coordination"],
-      images: ["/images/projects/luxury1.jpg", "/images/projects/luxury2.jpg"],
+      location: "North York, ON",
+      date: "September 2025",
+      description: "White-glove moving service for a luxurious Mansion.",
+      highlights: ["Careful transportation", "Unwrapping and assembling all items", "Placing all items according to plan", "Clean up"],
+      images: [luxuryHome],
     },
     {
       title: "University Library Transfer",
