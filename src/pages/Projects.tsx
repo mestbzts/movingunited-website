@@ -1,10 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar } from "lucide-react";
-import { useRouter } from "next/router";
+import { useNavigate } from "react-router-dom";
 
 const Projects = () => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const projects = [
     {
@@ -83,7 +83,7 @@ const Projects = () => {
             <Card
               key={index}
               className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
-              onClick={() => router.push(`/projects/${index}`)}
+              onClick={() => navigate(`/projects/${index}`)}
             >
               {/* Show first image as preview */}
               {project.images && project.images[0] && (
