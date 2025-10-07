@@ -1,9 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar } from "lucide-react";
+import { useRouter } from "next/router";
 
 const Projects = () => {
-  
+  const router = useRouter();
 
   const projects = [
     {
@@ -13,6 +14,7 @@ const Projects = () => {
       date: "March 2024",
       description: "Successfully relocated a 50-employee tech company to their new downtown office space with zero downtime.",
       highlights: ["15,000 sq ft office", "100+ workstations", "Server room relocation", "Weekend completion"],
+      images: ["/images/projects/office1.jpg", "/images/projects/office2.jpg"],
     },
     {
       title: "Luxury Home Move",
@@ -21,6 +23,7 @@ const Projects = () => {
       date: "February 2024",
       description: "White-glove moving service for a 8,000 sq ft luxury residence with valuable art collection and antiques.",
       highlights: ["Climate-controlled transport", "Art handling specialists", "Custom crating", "Storage coordination"],
+      images: ["/images/projects/luxury1.jpg", "/images/projects/luxury2.jpg"],
     },
     {
       title: "University Library Transfer",
@@ -29,6 +32,7 @@ const Projects = () => {
       date: "January 2024",
       description: "Organized relocation of 50,000+ books and research materials during semester break.",
       highlights: ["Cataloging system maintained", "Phased move approach", "Archive preservation", "2-week completion"],
+      images: ["/images/projects/library1.jpg"],
     },
     {
       title: "Multi-Family Building",
@@ -37,6 +41,7 @@ const Projects = () => {
       date: "December 2023",
       description: "Coordinated moves for 12 families transitioning to a new residential building.",
       highlights: ["Simultaneous coordination", "Elevator scheduling", "Individual storage units", "Move-in coordination"],
+      images: ["/images/projects/multifamily1.jpg"],
     },
     {
       title: "Medical Practice Relocation",
@@ -45,6 +50,7 @@ const Projects = () => {
       date: "November 2023",
       description: "Moved a busy medical practice including sensitive equipment and patient records.",
       highlights: ["HIPAA compliance", "Medical equipment specialists", "After-hours move", "Same-day setup"],
+      images: ["/images/projects/medical1.jpg"],
     },
     {
       title: "Estate Sale Preparation",
@@ -53,6 +59,7 @@ const Projects = () => {
       date: "October 2023",
       description: "Assisted with sorting, packing, and relocating items for estate settlement.",
       highlights: ["Gentle handling", "Item cataloging", "Distribution coordination", "Storage facilitation"],
+      images: ["/images/projects/estate1.jpg"],
     },
   ];
 
@@ -73,7 +80,19 @@ const Projects = () => {
       <section className="py-20 container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
+            <Card
+              key={index}
+              className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
+              onClick={() => router.push(`/projects/${index}`)}
+            >
+              {/* Show first image as preview */}
+              {project.images && project.images[0] && (
+                <img
+                  src={project.images[0]}
+                  alt={project.title}
+                  className="w-full h-48 object-cover"
+                />
+              )}
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <Badge variant={project.type === "Commercial" ? "default" : "secondary"}>
@@ -84,16 +103,12 @@ const Projects = () => {
                     {project.date}
                   </div>
                 </div>
-                
                 <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                
                 <div className="flex items-center text-sm text-muted-foreground mb-4">
                   <MapPin className="h-4 w-4 mr-1" />
                   {project.location}
                 </div>
-                
                 <p className="text-muted-foreground mb-4">{project.description}</p>
-                
                 <div className="space-y-2">
                   <div className="text-sm font-semibold">Key Highlights:</div>
                   <ul className="space-y-1">
