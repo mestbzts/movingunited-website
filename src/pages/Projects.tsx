@@ -28,12 +28,12 @@ const Projects = () => {
       images: [luxuryHome],
     },
     {
-      title: "University Library Transfer",
+      title: "University Library Chairs Delivery",
       type: "Commercial",
-      location: "Boston, MA",
-      date: "January 2024",
-      description: "Organized relocation of 50,000+ books and research materials during semester break.",
-      highlights: ["Cataloging system maintained", "Phased move approach", "Archive preservation", "2-week completion"],
+      location: "Guelph, ON",
+      date: "May 2025",
+      description: "Organized relocation of 150 chairs to Guelph University.",
+      highlights: ["Loaded & Secured all chairs", "Delivered on time", "Assembled all chairs", "Placed all items according to plan"],
       images: ["/images/projects/library1.jpg"],
     },
     {
@@ -72,7 +72,7 @@ const Projects = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6">Our Projects</h1>
           <p className="text-xl max-w-3xl mx-auto">
-            Take a look at some of our recent successful moves and see the quality 
+            Take a look at some of our recent successful moves and see the quality
             of service we deliver to every client.
           </p>
         </div>
@@ -84,7 +84,8 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
+              className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
+              style={{ aspectRatio: "3/4", minHeight: "420px", maxWidth: "400px", margin: "0 auto" }}
               onClick={() => navigate(`/projects/${index}`)}
             >
               {/* Show first image as preview */}
@@ -96,7 +97,7 @@ const Projects = () => {
                   style={{ aspectRatio: "3/4" }}
                 />
               )}
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center justify-between mb-4">
                   <Badge variant={project.type === "Commercial" ? "default" : "secondary"}>
                     {project.type}
