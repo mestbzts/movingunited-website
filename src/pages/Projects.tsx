@@ -85,40 +85,47 @@ const Projects = () => {
             <Card
               key={index}
               className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
-              style={{ aspectRatio: "3/4", minHeight: "420px", maxWidth: "400px", margin: "0 auto" }}
+              style={{
+                aspectRatio: "3/4",
+                minHeight: "520px", // slightly taller for more text
+                maxWidth: "400px",
+                margin: "0 auto"
+              }}
               onClick={() => navigate(`/projects/${index}`)}
             >
               {/* Show first image as preview */}
               {project.images && project.images[0] && (
-                <img
-                  src={project.images[0]}
-                  alt={project.title}
-                  className="w-full h-72 object-cover object-center"
-                  style={{ aspectRatio: "3/4" }}
-                />
+                <div className="flex justify-center items-center w-full" style={{ height: "180px" }}>
+                  <img
+                    src={project.images[0]}
+                    alt={project.title}
+                    className="object-cover object-center rounded"
+                    style={{ maxHeight: "100%", maxWidth: "100%", aspectRatio: "3/4" }}
+                  />
+                </div>
               )}
-              <div className="p-6 flex flex-col flex-1">
-                <div className="flex items-center justify-between mb-4">
-                  <Badge variant={project.type === "Commercial" ? "default" : "secondary"}>
+              <div className="p-4 flex flex-col flex-1">
+                <div className="flex items-center justify-between mb-2">
+                  <Badge variant={project.type === "Commercial" ? "default" : "secondary"} className="text-xs px-2 py-1">
                     {project.type}
                   </Badge>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Calendar className="h-4 w-4 mr-1" />
+                  <div className="flex items-center text-xs text-muted-foreground">
+                    <Calendar className="h-3 w-3 mr-1" />
                     {project.date}
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                <div className="flex items-center text-sm text-muted-foreground mb-4">
-                  <MapPin className="h-4 w-4 mr-1" />
+                <h3 className="text-lg font-bold mb-1">{project.title}</h3>
+                <div className="flex items-center text-xs text-muted-foreground mb-2">
+                  <MapPin className="h-3 w-3 mr-1" />
                   {project.location}
                 </div>
-                <p className="text-muted-foreground mb-4">{project.description}</p>
-                <div className="space-y-2">
-                  <div className="text-sm font-semibold">Key Highlights:</div>
-                  <ul className="space-y-1">
+                <p className="text-xs text-muted-foreground mb-2">{project.description}</p>
+                <div className="space-y-1">
+                  <div className="text-xs font-semibold">Key Highlights:</div>
+                  <ul className="space-y-0.5">
                     {project.highlights.map((highlight, idx) => (
-                      <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                        <div className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                      <li key={idx} className="text-xs text-muted-foreground flex items-start gap-2">
+                        <div className="h-1 w-1 rounded-full bg-primary mt-1 flex-shrink-0" />
                         <span>{highlight}</span>
                       </li>
                     ))}
