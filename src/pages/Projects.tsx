@@ -95,12 +95,12 @@ const Projects = () => {
             >
               {/* Show first image as preview */}
               {project.images && project.images[0] && (
-                <div className="flex justify-center items-center w-full" style={{ height: "180px" }}>
+                <div className="w-full" style={{ height: "240px" }}>
                   <img
                     src={project.images[0]}
                     alt={project.title}
-                    className="object-cover object-center rounded"
-                    style={{ maxHeight: "100%", maxWidth: "100%", aspectRatio: "3/4" }}
+                    className="w-full h-full object-cover object-center rounded"
+                    style={{ aspectRatio: "3/4" }}
                   />
                 </div>
               )}
