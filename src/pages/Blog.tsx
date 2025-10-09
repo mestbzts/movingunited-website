@@ -11,11 +11,7 @@ const blogs = [
 		title: "How to Prepare for a Big Move",
 		category: "Moving Tips",
 		summary: "Essential steps to make your move stress-free.",
-		content: `Full blog content for preparing for a big move...
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. 
-Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-Curabitur nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat.`,
+		content: "Full blog content for preparing for a big move...",
 		images: ["/images/blogs/move1.jpg"],
 	},
 	{
@@ -23,11 +19,7 @@ Curabitur nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu trist
 		title: "Staging Your Home for Sale",
 		category: "Staging",
 		summary: "Tips to make your home irresistible to buyers.",
-		content: `Full blog content for staging your home...
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. 
-Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-Curabitur nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat.`,
+		content: "Full blog content for staging your home...",
 		images: ["/images/blogs/staging1.jpg", "/images/blogs/staging2.jpg"],
 	},
 	{
@@ -35,11 +27,7 @@ Curabitur nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu trist
 		title: "Commercial Relocation Checklist",
 		category: "Commercial",
 		summary: "A checklist for a smooth office relocation.",
-		content: `Full blog content for commercial relocation...
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. 
-Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-Curabitur nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat.`,
+		content: "Full blog content for commercial relocation...",
 		images: ["/images/blogs/commercial1.jpg"],
 	},
 	{
@@ -47,11 +35,7 @@ Curabitur nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu trist
 		title: "Packing Guide for Fragile Items",
 		category: "Packing Guide",
 		summary: "How to safely pack your fragile belongings.",
-		content: `Full blog content for packing fragile items...
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. 
-Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-Curabitur nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat.`,
+		content: "Full blog content for packing fragile items...",
 		images: ["/images/blogs/packing1.jpg"],
 	},
 	{
@@ -59,11 +43,7 @@ Curabitur nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu trist
 		title: "Planning Your Move: Timeline & Checklist",
 		category: "Planning",
 		summary: "A step-by-step timeline for a stress-free move.",
-		content: `Full blog content for planning your move...
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. 
-Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-Curabitur nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat.`,
+		content: "Full blog content for planning your move...",
 		images: ["/images/blogs/planning1.jpg"],
 	},
 	// ...add more blogs as needed
@@ -115,7 +95,7 @@ const Blog = () => {
 			<section className="py-12 container mx-auto px-4">
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					{filteredBlogs.map((blog) => (
-						<Card
+						<div
 							key={blog.id}
 							className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
 							onClick={() => navigate(`/blog/${blog.id}`)}
@@ -146,7 +126,7 @@ const Blog = () => {
 									Read More
 								</button>
 							</div>
-						</Card>
+						</div>
 					))}
 				</div>
 			</section>
