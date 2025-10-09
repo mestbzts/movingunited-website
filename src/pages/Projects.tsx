@@ -85,12 +85,7 @@ const Projects = () => {
             <Card
               key={index}
               className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
-              style={{
-                aspectRatio: "3/4",
-                minHeight: "700px", // Increased height for more content space
-                maxWidth: "480px",  // Slightly wider for more text room
-                margin: "0 auto"
-              }}
+              style={{ aspectRatio: "3/4", minHeight: "420px", maxWidth: "400px", margin: "0 auto" }}
               onClick={() => navigate(`/projects/${index}`)}
             >
               {/* Show first image as preview */}
@@ -98,7 +93,7 @@ const Projects = () => {
                 <img
                   src={project.images[0]}
                   alt={project.title}
-                  className="w-full h-96 object-cover object-center"
+                  className="w-full h-72 object-cover object-center"
                   style={{ aspectRatio: "3/4" }}
                 />
               )}
