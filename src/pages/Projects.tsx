@@ -87,8 +87,8 @@ const Projects = () => {
               className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
               style={{
                 aspectRatio: "3/4",
-                minHeight: "600px", // Increased height for more content space
-                maxWidth: "440px",  // Slightly wider for more text room
+                minHeight: "700px", // Increased height for more content space
+                maxWidth: "480px",  // Slightly wider for more text room
                 margin: "0 auto"
               }}
               onClick={() => navigate(`/projects/${index}`)}
@@ -98,11 +98,11 @@ const Projects = () => {
                 <img
                   src={project.images[0]}
                   alt={project.title}
-                  className="w-full h-96 object-cover object-center" // h-96 for taller portrait image
+                  className="w-full h-96 object-cover object-center"
                   style={{ aspectRatio: "3/4" }}
                 />
               )}
-              <div className="p-6 flex flex-col flex-1 overflow-auto">
+              <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-center justify-between mb-4">
                   <Badge variant={project.type === "Commercial" ? "default" : "secondary"}>
                     {project.type}
