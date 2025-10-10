@@ -2,11 +2,23 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import TiffEventImg from "@/assets/Tiff-event.jpg";
 import luxuryHome from "@/assets/ilkin.jpeg";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const Projects = () => {
   const navigate = useNavigate();
+
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Back to Top handler
+  const handleBackToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const projects = [
     {
@@ -66,7 +78,7 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-secondary text-white py-20">
         <div className="container mx-auto px-4 text-center">
@@ -137,9 +149,10 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Testimonials moved to Home page */}
+      <BackToTopButton />
     </div>
   );
 };
+
 
 export default Projects;
