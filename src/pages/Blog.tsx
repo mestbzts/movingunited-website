@@ -115,7 +115,7 @@ const Blog = () => {
 									{blog.summary}
 								</p>
 								<Link
-									to={`/blog/${blog.id}`}
+									to={`/blog/Blog${blog.id}`}
 									className="mt-auto text-primary font-semibold underline text-sm text-left"
 									style={{ width: "fit-content" }}
 								>
