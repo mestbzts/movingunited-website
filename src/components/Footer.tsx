@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/moving-united-logo.png";
+import { useCallback } from "react";
 
 const Footer = () => {
+  // Scroll to top and then navigate
+  const handleNavTop = useCallback((navigateTo: string) => {
+    window.scrollTo(0, 0);
+    // For <Link>, just scroll; navigation is handled by Link itself
+  }, []);
+
   return (
     <footer className="bg-card border-t mt-20">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
+            <Link to="/" className="flex items-center gap-2 mb-4" onClick={() => handleNavTop("/")}>
               <img src={logo} alt="Moving United" className="h-12" />
             </Link>
             <p className="text-lg font-semibold mb-2">Your Move. Our Mission.</p>
@@ -40,10 +47,42 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
-              <li><Link to="/projects" className="text-sm text-muted-foreground hover:text-primary transition-colors">Projects</Link></li>
-              <li><Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => handleNavTop("/about")}
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => handleNavTop("/services")}
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/projects"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => handleNavTop("/projects")}
+                >
+                  Projects
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/blog"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => handleNavTop("/blog")}
+                >
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -60,7 +99,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4"><Link to="/Contact"> Contact Us</Link></h3>
+            <h3 className="font-semibold mb-4">
+              <Link to="/Contact" onClick={() => handleNavTop("/Contact")}> Contact Us</Link>
+            </h3>
             <ul className="space-y-2">
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="h-4 w-4" />
