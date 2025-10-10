@@ -87,8 +87,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Services</h3>
-            <Link to="/services" onClick={() => handleNavTop("/services")}> Contact Us</Link>
+            <h3 className="font-semibold mb-4"><Link to="/services" onClick={() => handleNavTop("/services")}> Services</Link></h3>
             <ul className="space-y-2">
               <li className="text-sm text-muted-foreground">Residential Moving</li>
               <li className="text-sm text-muted-foreground">Commercial Moving</li>
