@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const blogs = [
 	{
@@ -74,7 +74,7 @@ const Blog = () => {
 			</section>
 
 			{/* Category Bar */}
-			<div className="flex gap-4 px-4 py-6 bg-gray-100 sticky top-0 z-10">
+			<div className="flex justify-center gap-4 px-4 py-6 bg-gray-100 sticky top-0 z-10">
 				{categories.map((cat) => (
 					<button
 						key={cat}
@@ -95,10 +95,9 @@ const Blog = () => {
 			<section className="py-12 container mx-auto px-4">
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					{filteredBlogs.map((blog) => (
-						<div
+						<Card
 							key={blog.id}
 							className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
-							onClick={() => navigate(`/blog/${blog.id}`)}
 						>
 							{blog.images && blog.images[0] && (
 								<img
@@ -115,18 +114,15 @@ const Blog = () => {
 								<p className="text-sm text-muted-foreground mb-4">
 									{blog.summary}
 								</p>
-								<button
+								<Link
+									to={`/blog/${blog.id}`}
 									className="mt-auto text-primary font-semibold underline text-sm text-left"
-									onClick={(e) => {
-										e.stopPropagation();
-										navigate(`/blog/${blog.id}`);
-									}}
-									type="button"
+									style={{ width: "fit-content" }}
 								>
 									Read More
-								</button>
+								</Link>
 							</div>
-						</div>
+						</Card>
 					))}
 				</div>
 			</section>

@@ -1,0 +1,26 @@
+import { useNavigate } from "react-router-dom";
+
+const Blog0 = () => {
+	const navigate = useNavigate();
+	return (
+		<div className="min-h-screen bg-white">
+			<div className="container mx-auto px-4 py-8 max-w-2xl">
+				<button className="mb-4 text-primary underline" onClick={() => navigate("/blog")}>
+					&larr; Back to Blogs
+				</button>
+				<div className="text-xs text-primary font-semibold mb-2">Moving Tips</div>
+				<h1 className="text-3xl font-bold mb-4">How to Prepare for a Big Move</h1>
+				<img src="/images/blogs/move1.jpg" alt="How to Prepare for a Big Move" className="w-full rounded object-cover mb-6" />
+				<div className="text-base text-gray-800 whitespace-pre-line">
+{`Full blog content for preparing for a big move...
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. 
+Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+Curabitur nec lacus elit. Pellentesque convallis nisi ac augue pharetra eu tristique neque consequat.`}
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export default Blog0;
