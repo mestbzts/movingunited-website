@@ -8,6 +8,7 @@ import heroImage from "@/assets/hero-moving.jpg";
 import residentialImage from "@/assets/residential-moving.jpg";
 import commercialImage from "@/assets/commercial-moving.jpg";
 import storageImage from "@/assets/storage-services.jpg";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const Home = () => {
   const services = [
@@ -226,6 +227,7 @@ const Home = () => {
           <Testimonials />
         </div>
       </section>
+      <BackToTopButton />
     </div>
   );
 };

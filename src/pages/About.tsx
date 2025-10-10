@@ -1,3 +1,4 @@
+import BackToTopButton from "@/components/BackToTopButton";
 import { Card } from "@/components/ui/card";
 import { Users, Award, Clock, Heart } from "lucide-react";
 
@@ -78,6 +79,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      <BackToTopButton />
     </div>
   );
 };

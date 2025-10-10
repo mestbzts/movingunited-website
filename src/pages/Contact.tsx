@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -191,6 +192,7 @@ Submitted on: ${new Date().toLocaleString()}
           </div>
         </div>
       </section>
+      <BackToTopButton />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { Package, Building2, Warehouse, Box, Truck, Shield } from "lucide-react"
 import residentialImage from "@/assets/residential-moving.jpg";
 import commercialImage from "@/assets/commercial-moving.jpg";
 import storageImage from "@/assets/storage-services.jpg";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const Services = () => {
   const mainServices = [
@@ -136,6 +137,7 @@ const Services = () => {
           </Button>
         </div>
       </section>
+      <BackToTopButton />
     </div>
   );
 };
