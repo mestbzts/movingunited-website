@@ -156,7 +156,7 @@ Submitted on: ${new Date().toLocaleString()}
                     <option value="Staging">Staging</option>
                     <option value="Furniture Assembly">Furniture Assembly</option>
                     <option value="Disposal Services">Disposal Services</option>
-                    <option value="Other">Disposal Services</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 
