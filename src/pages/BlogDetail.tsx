@@ -397,8 +397,10 @@ Ready to start planning your move? Contact Moving United today for a free consul
 const BlogDetail = () => {
 	const { id } = useParams();
 	const navigate = useNavigate();
-	// Fix: match id as a number, not "Blog{id}"
-	const blog = blogs.find((b) => String(b.id) === id);
+
+	// normalize id: accept either "0" or "Blog0"
+	const normalizedId = id ? (id.startsWith("Blog") ? id.replace(/^Blog/, "") : id) : "";
+	const blog = blogs.find((b) => String(b.id) === normalizedId);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
