@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import BlogDetail from "@/pages/BlogDetail";
 import BackToTopButton from "@/components/BackToTopButton";
 
 const blogs = [
@@ -117,7 +116,8 @@ const Blog = () => {
 									{blog.summary}
 								</p>
 								<Link
-									to={`/blog/${blog.id}`}
+									to={`/blog/Blog${blog.id}`}
+									onClick={() => window.scrollTo(0, 0)}
 									className="mt-auto text-primary font-semibold underline text-sm text-left"
 									style={{ width: "fit-content" }}
 								>
@@ -149,7 +149,7 @@ const Blog = () => {
 					</div>
 				</div>
 			</section>
-      <BackToTopButton />
+			<BackToTopButton />
 		</div>
 	);
 };
