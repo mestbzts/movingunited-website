@@ -4,7 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Calendar } from "lucide-react";
 import { useEffect } from "react";
 import BigMoveImg from "@/assets/bigmove.png";
-import Staging from "@/assets/staging.png";
+import Staging from "@/assets/staging.jpg";
+import Move from "@/assets/move.jpg";
 
 const blogs = [
 	{
@@ -535,8 +536,8 @@ Contact us for professional packing services tailored to your needs!`,
 **Remember**: Moving doesn't have to be stressful. With proper planning and the right moving company, you can enjoy a smooth transition to your new home.
 
 Ready to start planning your move? Contact Moving United today for a free consultation and quote. Our expert team will guide you through every step of the process!`,
-		images: ["/images/blogs/planning1.jpg"],
-		date: "February 20, 2024",
+		images: [Move],
+		date: "January 23, 2025",
 		author: "Moving United Team",
 	},
 ];

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import BackToTopButton from "@/components/BackToTopButton";
 import BigMoveImg from "@/assets/bigmove.png";
-import Staging from "@/assets/staging.png";
+import Staging from "@/assets/staging.jpg";
 import Move from "@/assets/move.jpg";
 
 const blogs = [
