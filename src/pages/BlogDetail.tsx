@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Calendar } from "lucide-react";
 import { useEffect } from "react";
 import BigMoveImg from "@/assets/bigmove.png";
+import Staging from "@/assets/staging.png";
 
 const blogs = [
 	{
@@ -126,39 +127,105 @@ MovingUnited – Your Move. Our Mission.`,
 		title: "Staging Your Home for Sale",
 		category: "Staging",
 		summary: "Tips to make your home irresistible to buyers.",
-		content: `Home staging is a powerful tool that can help sell your property faster and for a better price. Here's how to stage your home effectively:
+		content: `When it comes to selling your home, first impressions matter. A well-staged home doesn’t just look appealing — it helps potential buyers visualize themselves living there.
+But what many homeowners don’t realize is that a moving company can play a major role in the home-staging process.
 
-**The Power of First Impressions**
-Buyers often make up their minds within the first few minutes of viewing a property. Professional staging ensures your home makes the best possible first impression.
+At MovingUnited, we go beyond moving boxes. Our Toronto-based team helps homeowners and realtors prepare, declutter, transport, and set up spaces to highlight every home’s full potential.
 
-**1. Declutter and Depersonalize**
-Remove personal items, family photos, and excess furniture. Buyers need to envision themselves in the space, not be distracted by your belongings.
+Here’s how working with a professional moving and assembly company can make your staging process easier, faster, and more effective.
 
-**2. Deep Clean Everything**
-A spotless home suggests it's been well-maintained. Pay special attention to kitchens, bathrooms, and floors.
 
-**3. Optimize Furniture Placement**
-Arrange furniture to highlight the room's best features and create a natural flow. Sometimes less is more—removing pieces can make rooms appear larger.
+**1. Decluttering and Preparatione**
+The first rule of staging is less is more. Buyers want to see open, clean spaces — not overcrowded rooms.
+Our moving professionals can help you declutter and organize by:
 
-**4. Enhance Curb Appeal**
-The exterior is the first thing buyers see. Maintain the lawn, add fresh flowers, and ensure the entrance is welcoming.
+Packing away personal items and excess furniture
 
-**5. Use Neutral Colors**
-Fresh coats of neutral paint make spaces feel clean and allow buyers to imagine their own style in the home.
+Transporting items to temporary storage
 
-**6. Maximize Natural Light**
-Open curtains, clean windows, and add mirrors to reflect light. Well-lit spaces feel more inviting and spacious.
+Organizing essentials so you can still live comfortably during showings
 
-**7. Add Strategic Accents**
-Fresh flowers, plush towels, and tasteful artwork can add warmth without overwhelming the space.
+We handle your belongings carefully, labeling and packing each item securely — so when it’s time to move to your new place, everything’s ready.
 
-**8. Address Repairs**
-Fix leaky faucets, squeaky doors, and any visible damage. Small issues can raise concerns about larger problems.
+**Pro Tip:** Decluttering early helps your real estate listing photos look brighter and more spacious, which attracts more potential buyers.
 
-Our professional staging services can transform your property and maximize its market appeal. Contact us to learn more!`,
-		images: ["/images/blogs/staging1.jpg", "/images/blogs/staging2.jpg"],
-		date: "March 10, 2024",
-		author: "Sarah Johnson, Staging Expert",
+**2. Rearranging and Furniture Assembly**
+Staging isn’t always about bringing in new furniture — often, it’s about rearranging what you already own.
+Our assembly and disassembly team can safely move large pieces, rearrange rooms, and even set up rental or showroom furniture to match your staging plan.
+
+We frequently work with real estate agents and interior stylists across the GTA to ensure every piece is positioned perfectly — highlighting the flow and size of each room.
+
+From downtown Toronto condos to suburban homes in Vaughan or Markham, our team has experience staging all kinds of spaces.
+
+**3. Temporary Storage and Logistics**
+Don’t have space to keep your extra furniture? No problem.
+We offer short-term storage options and secure transport for your items until your home sells.
+
+When the time comes, we can move everything directly into your new home — saving you from the stress of handling multiple moves.
+
+Our service covers the entire Greater Toronto Area, including:
+
+Vaughan
+
+Markham
+
+Newmarket
+
+Aurora
+
+Pickering
+
+Ajax
+
+So whether you’re moving downtown or into the suburbs, we’ve got you covered.
+
+**4. Handling Assembly and Repairs Before Showings**
+A perfectly staged home also means everything works and looks good.
+Our movers are trained in furniture assembly and light handyman work, such as:
+
+Reassembling or tightening loose furniture
+
+Hanging mirrors and light décor
+
+Helping with small item installations
+
+This added service ensures your home looks its best before the first open house.
+
+Listing photos and video tours are often the first things buyers see — so presentation is everything.
+Our team coordinates with realtors and photographers to make sure:
+
+All furniture and décor are placed correctly
+
+Walkways are clear
+
+Cables, clutter, and personal items are hidden
+
+Lighting and spacing look perfect for the camera
+
+Once the shoot is done, we can help reset or adjust rooms as needed.**5. Preparing for Photos and Open Houses**
+
+**💡 Why Work with a Moving Company for Staging?**
+
+Most people think of movers as the last step — but in reality, they’re the first step toward selling success.
+Here’s why working with MovingUnited can save you time and effort:
+
+✅ End-to-End Service – From packing and storage to setup and assembly.
+✅ Local Expertise – We understand Toronto’s condo layouts, narrow driveways, and suburban access.
+✅ Professional Team – Friendly, insured, and efficient movers.
+✅ Flexible Scheduling – We work around open houses and realtor appointments.
+✅ Affordable Rates – Transparent pricing with no hidden fees.
+
+We’re proud to support both homeowners and real estate professionals throughout the GTA.
+
+🚚 Make Your Home Market-Ready with MovingUnited
+
+Selling your home is a big step — and we’re here to make it smoother.
+Whether you need help with decluttering, assembly, or full-scale staging logistics, our experienced movers can handle it all.
+
+MovingUnited – Your Move. Our Mission.`,
+		images: [Staging],
+		date: "feb 10, 2025",
+		author: "Moving United Team",
 	},
 	{
 		id: 2,

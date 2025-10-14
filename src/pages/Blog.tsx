@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import BackToTopButton from "@/components/BackToTopButton";
 import BigMoveImg from "@/assets/bigmove.png";
+import Staging from "@/assets/staging.png";
 
 const blogs = [
 	{
@@ -18,11 +19,11 @@ const blogs = [
 	},
 	{
 		id: 1,
-		title: "Staging Your Home for Sale",
+		title: "How to Stage Your Home",
 		category: "Staging",
 		summary: "Tips to make your home irresistible to buyers.",
 		content: "Full blog content for staging your home...",
-		images: ["/images/blogs/staging1.jpg", "/images/blogs/staging2.jpg"],
+		images: [Staging],
 	},
 	{
 		id: 2,
