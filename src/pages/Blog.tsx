@@ -7,6 +7,7 @@ import { useNavigate, Link } from "react-router-dom";
 import BackToTopButton from "@/components/BackToTopButton";
 import BigMoveImg from "@/assets/bigmove.png";
 import Staging from "@/assets/staging.png";
+import Move from "@/assets/move.jpg";
 
 const blogs = [
 	{
@@ -47,7 +48,7 @@ const blogs = [
 		category: "Planning",
 		summary: "A step-by-step timeline for a stress-free move.",
 		content: "Full blog content for planning your move...",
-		images: ["/images/blogs/planning1.jpg"],
+		images: [Move],
 	},
 	// ...add more blogs as needed
 ];
