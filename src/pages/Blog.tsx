@@ -5,6 +5,7 @@ import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import BackToTopButton from "@/components/BackToTopButton";
+import BigMoveImg from "@/assets/bigmove.png";
 
 const blogs = [
 	{
@@ -13,7 +14,7 @@ const blogs = [
 		category: "Moving Tips",
 		summary: "Essential steps to make your move stress-free.",
 		content: "Full blog content for preparing for a big move...",
-		images: ["/images/blogs/move1.jpg"],
+		images: [BigMoveImg],
 	},
 	{
 		id: 1,
@@ -116,7 +117,7 @@ const Blog = () => {
 									{blog.summary}
 								</p>
 								<Link
-									to={`/blog/Blog${blog.id}`}
+									to={`/blog/${blog.id}`}
 									onClick={() => window.scrollTo(0, 0)}
 									className="mt-auto text-primary font-semibold underline text-sm text-left"
 									style={{ width: "fit-content" }}

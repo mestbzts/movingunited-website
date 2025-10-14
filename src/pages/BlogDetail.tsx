@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Calendar } from "lucide-react";
 import { useEffect } from "react";
+import BigMoveImg from "@/assets/bigmove.png";
 
 const blogs = [
 	{
@@ -105,7 +106,7 @@ Unpack gradually and take breaks to explore your new neighborhood.
 
 If you’ve moved to the GTA suburbs (like Aurora, Newmarket, or Pickering), take some time to discover local parks, restaurants, and shops. Moving is also about building new routines and making fresh memories.
 
-Why Toronto Residents Trust MovingUnited
+**Why Toronto Residents Trust MovingUnited**
 
 ✅ Local Expertise – We know Toronto traffic, condo regulations, and building access rules.
 ✅ Transparent Pricing – No hidden fees, ever.
@@ -115,17 +116,8 @@ Why Toronto Residents Trust MovingUnited
 
 When you move with us, you’re not just hiring movers — you’re partnering with professionals who care.
 
-📞 Ready to Plan Your Move?
-
-Let’s make your next move your best move yet.
-Call MovingUnited today for a free quote or to book your moving date.
-
-Call or Text: (437) 5058275
-Email: info@movingunited.ca
-Website: https://movingunited.ca
-
 MovingUnited – Your Move. Our Mission.`,
-		images: ["/images/blogs/move1.jpg"],
+		images: [BigMoveImg],
 		date: "March 15, 2025",
 		author: "Moving United Team",
 	},
