@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import BlogDetail from "@/pages/BlogDetail";
 import BackToTopButton from "@/components/BackToTopButton";
 
 const blogs = [
