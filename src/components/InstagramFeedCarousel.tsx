@@ -1,144 +1,100 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-type InstagramMediaItem = {
+type IGPost = {
   id: string;
-  media_url?: string;
-  thumbnail_url?: string;
-  permalink: string;
   caption?: string;
+  media_url?: string;
+  permalink?: string;
   media_type?: string;
 };
 
-const INSTAGRAM_PROFILE_URL = "https://www.instagram.com/movingunited.ca/";
-
-const PAGE_SIZE = 12;
-
 const InstagramFeedCarousel: React.FC = () => {
-  const [items, setItems] = useState<InstagramMediaItem[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string>("");
-
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  const accessToken = import.meta.env.VITE_IG_ACCESS_TOKEN as string | undefined;
+  const token = import.meta.env.VITE_IG_TOKEN as string | undefined;
+  const [posts, setPosts] = useState<IGPost[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    let isCancelled = false;
-    async function load() {
-      setIsLoading(true);
-      setError("");
-      try {
-        if (!accessToken) {
-          // No token: show graceful fallback (no network call)
-          setItems([]);
-          return;
-        }
-        const url = `https://graph.instagram.com/me/media?fields=id,media_url,permalink,thumbnail_url,caption,media_type&limit=${PAGE_SIZE}&access_token=${accessToken}`;
-        const resp = await fetch(url);
-        if (!resp.ok) {
-          throw new Error(`Instagram API error: ${resp.status}`);
-        }
-        const data = await resp.json();
-        if (isCancelled) return;
-        const parsed: InstagramMediaItem[] = Array.isArray(data.data) ? data.data : [];
-        setItems(parsed.filter((it) => Boolean(it.media_url || it.thumbnail_url)));
-      } catch (e: any) {
-        if (isCancelled) return;
-        setError(e?.message || "Failed to load Instagram feed");
-      } finally {
-        if (!isCancelled) setIsLoading(false);
-      }
+    if (!token) {
+      setError("Instagram token not configured.");
+      return;
     }
-    load();
+
+    const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,permalink,media_type&access_token=${token}`;
+
+    let mounted = true;
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) throw new Error("Instagram API error");
+        return res.json();
+      })
+      .then((data) => {
+        if (!mounted) return;
+        if (data && Array.isArray(data.data)) {
+          setPosts(data.data.slice(0, 9)); // show latest 9
+        } else {
+          setError("No posts found.");
+        }
+      })
+      .catch((err) => {
+        console.error("Instagram fetch error:", err);
+        if (mounted) setError("Failed to load Instagram feed.");
+      });
+
     return () => {
-      isCancelled = true;
+      mounted = false;
     };
-  }, [accessToken]);
+  }, [token]);
 
-  const displayItems = useMemo<InstagramMediaItem[]>(() => items.slice(0, PAGE_SIZE), [items]);
-
-  const scrollByAmount = (amount: number) => {
-    const el = containerRef.current;
-    if (!el) return;
-    el.scrollBy({ left: amount, behavior: "smooth" });
-  };
-
-  const content = (
-    <div className="relative">
-      <button
-        type="button"
-        aria-label="Previous"
-        onClick={() => scrollByAmount(-360)}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 rounded-full bg-background/80 border px-3 py-2 shadow hover:bg-background"
-      >
-        ‹
-      </button>
-      <div
-        ref={containerRef}
-        className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar pr-10 pl-10"
-        style={{ scrollSnapType: "x mandatory" }}
-      >
-        {displayItems.map((item) => {
-          const src = item.media_type === "VIDEO" ? item.thumbnail_url || item.media_url : item.media_url || item.thumbnail_url || "";
-          return (
-            <a
-              key={item.id}
-              href={item.permalink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="min-w-[320px] max-w-[320px] scroll-snap-align-start"
-            >
-              <div className="w-[320px] h-[320px] overflow-hidden rounded-xl border bg-card">
-                {src ? (
-                  <img src={src} alt={item.caption || "Instagram post"} className="w-full h-full object-cover" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-sm text-muted-foreground">No preview</div>
-                )}
-              </div>
-            </a>
-          );
-        })}
-      </div>
-      <button
-        type="button"
-        aria-label="Next"
-        onClick={() => scrollByAmount(360)}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 rounded-full bg-background/80 border px-3 py-2 shadow hover:bg-background"
-      >
-        ›
-      </button>
-    </div>
-  );
-
-  if (isLoading) {
+  if (error) {
     return (
-      <div className="text-center text-sm text-muted-foreground">Loading Instagram…</div>
+      <div className="text-center text-sm text-muted-foreground">
+        {error}
+      </div>
     );
   }
 
-  if (error || !accessToken || displayItems.length === 0) {
-    return (
-      <div className="text-center">
-        <p className="text-sm text-muted-foreground mb-4">
-          {accessToken
-            ? "We couldn't load the Instagram feed right now."
-            : "Connect your Instagram token to display your latest posts here."}
-        </p>
+  if (!posts.length) {
+    return <div className="text-center text-sm text-muted-foreground">Loading Instagram...</div>;
+  }
+
+  return (
+    <div className="grid grid-cols-3 gap-3">
+      {posts.map((p) => (
         <a
-          href={INSTAGRAM_PROFILE_URL}
+          key={p.id}
+          href={p.permalink}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-primary hover:underline"
+          className="block overflow-hidden rounded-md"
+          aria-label={p.caption ? p.caption.slice(0, 100) : "Instagram post"}
         >
-          Visit our Instagram profile
+          {p.media_type === "VIDEO" ? (
+            // show poster image if available (media_url often points to a playable URL)
+            <img
+              src={p.media_url}
+              alt={p.caption ?? "Instagram video"}
+              className="w-full h-32 object-cover"
+            />
+          ) : (
+            <img
+              src={p.media_url}
+              alt={p.caption ?? "Instagram image"}
+              className="w-full h-32 object-cover"
+            />
+          )}
         </a>
-      </div>
-    );
-  }
-
-  return content;
+      ))}
+    </div>
+  );
 };
 
 export default InstagramFeedCarousel;
+
+/*
+Notes:
+- This is a simple client-side fetch using the long-lived token you provided.
+- For production, it's safer to proxy requests through a server (so the token isn't exposed to clients).
+- Do NOT commit .env.local to your repository. Use server-side fetching for better security.
+*/
 
 
