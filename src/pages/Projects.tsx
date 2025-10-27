@@ -6,7 +6,9 @@ import { useEffect } from "react";
 import TiffEventImg from "@/assets/Tiff-event.jpg";
 import luxuryHome from "@/assets/ilkin.jpeg";
 import BackToTopButton from "@/components/BackToTopButton";
-
+import ChairsImg from "@/assets/Chairs-deliv.jpeg";
+import Windowss from "@/assets/windows-deliv.jpeg";
+import Furniturestore from "@/assets/furniture-store.jpeg";
 const Projects = () => {
   const navigate = useNavigate();
 
@@ -46,34 +48,34 @@ const Projects = () => {
       date: "May 2025",
       description: "Organized relocation of 150 chairs to Guelph University.",
       highlights: ["Loaded & Secured all chairs", "Delivered on time", "Assembled all chairs", "Placed all items according to plan"],
-      images: ["/images/projects/library1.jpg"],
+      images: [ChairsImg],
     },
     {
-      title: "Multi-Family Building",
+      title: "Window and Frame Delivery",
       type: "Residential",
-      location: "Seattle, WA",
-      date: "December 2023",
-      description: "Coordinated moves for 12 families transitioning to a new residential building.",
-      highlights: ["Simultaneous coordination", "Elevator scheduling", "Individual storage units", "Move-in coordination"],
-      images: ["/images/projects/multifamily1.jpg"],
+      location: "St. Catharines, ON",
+      date: "February 2025",
+      description: "Unloaded a full container of windows and frame materials for a luxurious home construction project.",
+      highlights: ["Container unloading", "Material organization", "Damage-free delivery", "Quality verification"],
+      images: [Windowss],
     },
     {
-      title: "Medical Practice Relocation",
+      title: "Physiotherapy center Relocation",
       type: "Commercial",
-      location: "Chicago, IL",
-      date: "November 2023",
-      description: "Moved a busy medical practice including sensitive equipment and patient records.",
-      highlights: ["HIPAA compliance", "Medical equipment specialists", "After-hours move", "Same-day setup"],
+      location: "Toronto, ON",
+      date: "December 2024",
+      description: "Moved a busy physiotherapy center including sensitive equipment and patient records.",
+      highlights: ["Patient record transfer", "Medical equipment specialists", "After-hours move", "Same-day setup"],
       images: ["/images/projects/medical1.jpg"],
     },
     {
-      title: "Estate Sale Preparation",
-      type: "Residential",
-      location: "Miami, FL",
-      date: "October 2023",
-      description: "Assisted with sorting, packing, and relocating items for estate settlement.",
-      highlights: ["Gentle handling", "Item cataloging", "Distribution coordination", "Storage facilitation"],
-      images: ["/images/projects/estate1.jpg"],
+      title: "Furniture store staging",
+      type: "Commercial",
+      location: "Toronto, ON",
+      date: "October 2024",
+      description: "Assisted with Moving, Assembling, and staging items for a furniture store.",
+      highlights: ["Gentle handling", "Assembling", "Placing within the store", "Final touches"],
+      images: [Furniturestore],
     },
   ];
 
