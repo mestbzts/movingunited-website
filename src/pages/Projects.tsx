@@ -9,6 +9,7 @@ import BackToTopButton from "@/components/BackToTopButton";
 import ChairsImg from "@/assets/Chairs-deliv.jpeg";
 import Windowss from "@/assets/windows-deliv.jpeg";
 import Furniturestore from "@/assets/furniture-store.jpeg";
+import phisio from "@/assets/phisio.jpg";
 const Projects = () => {
   const navigate = useNavigate();
 
@@ -66,7 +67,7 @@ const Projects = () => {
       date: "December 2024",
       description: "Moved a busy physiotherapy center including sensitive equipment and patient records.",
       highlights: ["Patient record transfer", "Medical equipment specialists", "After-hours move", "Same-day setup"],
-      images: ["/images/projects/medical1.jpg"],
+      images: [phisio],
     },
     {
       title: "Furniture store staging",

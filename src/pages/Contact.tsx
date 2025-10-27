@@ -182,11 +182,37 @@ Submitted on: ${new Date().toLocaleString()}
               <Card key={index} className="p-6">
                 <info.icon className="h-8 w-8 text-primary mb-3" />
                 <h3 className="font-bold text-lg mb-2">{info.title}</h3>
-                {info.details.map((detail, idx) => (
-                  <p key={idx} className="text-muted-foreground">
-                    {detail}
-                  </p>
-                ))}
+                {info.title === "Phone" ? (
+                  info.details.map((detail, idx) => (
+                    <p key={idx} className="text-muted-foreground">
+                      <a
+                        href={`tel:${detail.replace(/\D/g, "")}`}
+                        className="underline hover:text-primary"
+                        aria-label={`Call ${detail}`}
+                      >
+                        {detail}
+                      </a>
+                    </p>
+                  ))
+                ) : info.title === "Email" ? (
+                  info.details.map((detail, idx) => (
+                    <p key={idx} className="text-muted-foreground">
+                      <a
+                        href={`mailto:${detail}`}
+                        className="underline hover:text-primary"
+                        aria-label={`Email ${detail}`}
+                      >
+                        {detail}
+                      </a>
+                    </p>
+                  ))
+                ) : (
+                  info.details.map((detail, idx) => (
+                    <p key={idx} className="text-muted-foreground">
+                      {detail}
+                    </p>
+                  ))
+                )}
               </Card>
             ))}
           </div>
