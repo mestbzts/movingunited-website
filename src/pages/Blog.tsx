@@ -5,9 +5,11 @@ import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import BackToTopButton from "@/components/BackToTopButton";
-import BigMoveImg from "@/assets/bigmove.png";
+import BigMoveImg from "@/assets/bigmove.jpg";
 import Staging from "@/assets/staging.jpg";
 import Move from "@/assets/move.jpg";
+import Fragile from "@/assets/fragile.jpg";
+import Office from "@/assets/office-relocation.jpg";
 
 const blogs = [
 	{
@@ -32,7 +34,7 @@ const blogs = [
 		category: "Commercial",
 		summary: "A checklist for a smooth office relocation.",
 		content: "Full blog content for commercial relocation...",
-		images: ["/images/blogs/commercial1.jpg"],
+		images: [Office],
 	},
 	{
 		id: 3,
@@ -40,7 +42,7 @@ const blogs = [
 		category: "Packing Guide",
 		summary: "How to safely pack your fragile belongings.",
 		content: "Full blog content for packing fragile items...",
-		images: ["/images/blogs/packing1.jpg"],
+		images: [Fragile],
 	},
 	{
 		id: 4,
