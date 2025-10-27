@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Moon, Sun, Facebook, Instagram } from "lucide-react";
+import { Menu, X, Moon, Sun, Facebook, Instagram, Phone } from "lucide-react";
 import { useTheme } from "next-themes";
 import logo from "@/assets/moving-united-logo.png";
 
@@ -76,6 +76,14 @@ const Navbar = () => {
               <span className="sr-only">Toggle theme</span>
             </Button>
 
+            {/* Add this before the Get Quote button */}
+            <a
+              href="tel:4375058275"
+              className="hidden md:flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              (437) 505-8275
+            </a>
             <Button asChild className="hidden md:flex">
               <Link to="/contact">Get a Quote</Link>
             </Button>
