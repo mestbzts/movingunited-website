@@ -15,6 +15,7 @@ const InstagramFeedCarousel: React.FC = () => {
 
   useEffect(() => {
     if (!token) {
+      console.error("Instagram token not found. Make sure VITE_IG_TOKEN is set in .env.local");
       setError("Instagram token not configured.");
       return;
     }
@@ -24,12 +25,19 @@ const InstagramFeedCarousel: React.FC = () => {
     let mounted = true;
     fetch(url)
       .then((res) => {
-        if (!res.ok) throw new Error("Instagram API error");
+        if (!res.ok) {
+          console.error("Instagram API error:", res.status, res.statusText);
+          return res.json().then(err => {
+            console.error("Instagram API error details:", err);
+            throw new Error(err.error?.message || "Instagram API error");
+          });
+        }
         return res.json();
       })
       .then((data) => {
         if (!mounted) return;
         if (data && Array.isArray(data.data)) {
+          console.log(`Loaded ${data.data.length} Instagram posts`);
           setPosts(data.data.slice(0, 9)); // show latest 9
         } else {
           setError("No posts found.");
@@ -37,7 +45,7 @@ const InstagramFeedCarousel: React.FC = () => {
       })
       .catch((err) => {
         console.error("Instagram fetch error:", err);
-        if (mounted) setError("Failed to load Instagram feed.");
+        if (mounted) setError("Failed to load Instagram feed. Check console for details.");
       });
 
     return () => {

@@ -45,100 +45,10 @@ const defaultSeed: Testimonial[] = [
     id: "seed-4",
     name: "Martin Greystone",
     comment:
-      "The lads did a great job and secured all my items. A very stressful moving day turned out to be very chill thanks to them. Nothing was damaged, and everything was put in its place. Thank you so much." ,
+      "The lads did a great job and secured all my items. A very stressful moving day turned out to be very chill thanks to them. Nothing was damaged, and everything was put in its place. Thank you so much.”,
     rating: 5,
     createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
   },
-  {
-    id: "seed-5",
-    name: "kim Maxwell",
-    comment:
-      "We ordered furniture for our office, and they handled everything from pickup to setup. Not a single scratch" ,
-    rating: 5,
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
-  },
-  {
-    id: "seed-6",
-    name: "Marshall Campbell",
-    comment:
-      "No job too heavy for these guys! They helped us get rid of large furniture that no one else wanted to touch." ,
-    rating: 5,
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
-  },
-  {
-    id: "seed-7",
-    name: "Samantha Lee",
-    comment:
-      "Moving United's team was punctual, courteous, and efficient. They made our move stress-free and even helped with some last-minute changes." ,
-    rating: 5,
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
-  },
-  {
-    id: "seed-8",
-    name: "David Kim",
-    comment:
-      "I highly recommend Moving United for any relocation needs. Their attention to detail and customer service is unmatched." ,
-    rating: 5,
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
-  },
-  {
-    id: "seed-9",
-    name: "Emily Silverman",
-    comment:
-      "The team at Moving United went above and beyond to ensure our move was smooth. Reliable and responsive from start to finish. Great communication and top-quality service for our business move." ,
-    rating: 5,
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
-  },
-  {
-    id: "seed-10",
-    name: "Michael Kumar",
-    comment:
-      "From start to finish, Moving United provided exceptional service. Their team was friendly, efficient, and made our move a breeze." ,
-    rating: 5,
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
-  },
-  {
-    id: "seed-11",
-    name: "Najla Hejazi",
-    comment:
-      "We moved from a condo downtown to a house in the Newmarket, and they made it look effortless. Everything was wrapped, protected, and arrived in perfect condition." ,
-    rating: 5,
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
-  },
-  {
-    id: "seed-12",
-    name: "Olivia Brown",
-    comment:
-      "The team at Moving United was fantastic! They were professional, efficient, and took great care of our belongings. They disassembled our large sectional, bed frames, and wardrobes quickly and put them back together perfectly in the new place. Everything was sturdy and aligned just like before. Highly recommend!" ,
-    rating: 5,
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
-  },
-  {
-    id: "seed-13",
-    name: "Said Benzia",
-    comment:
-      "We ordered furniture from Canapy furniture, and Moving United was extremely reliable delivery team. Communication was excellent, and they made sure everything arrived in perfect shape." ,
-    rating: 5,
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
-  },
-  {
-    id: "seed-14",
-    name: "Angelo Carusso",
-    comment:
-      "We needed old commercial equipment removed, and they handled it safely and fast. They even cleaned up after themselves!" ,
-    rating: 5,
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
-  },
-  {
-    id: "seed-15",
-    name: "Linda Green",
-    comment:
-      "We work in real estate staging, and these movers are our go-to team. They understand how to handle delicate décor, large furniture, and tight spaces without a hitch." ,
-    rating: 5,
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30,
-  },
-
-
 ];
 
 function loadTestimonials(): Testimonial[] {
@@ -260,7 +170,7 @@ export const Testimonials: React.FC = () => {
         </div>
       </section>
 
-      {/*<section className="max-w-3xl mx-auto">
+      <section className="max-w-3xl mx-auto">
         <Card className="p-8">
           <h3 className="text-2xl font-bold mb-6">Share Your Experience</h3>
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -294,13 +204,12 @@ export const Testimonials: React.FC = () => {
 
             <div>
               <label className="block text-sm font-medium mb-2">Your Comment</label>
-              <Textarea
+              <Textarea 
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                placeholder="Tell us about your experience with Moving United..."
+                placeholder="Tell us about your experience with Moving United..." 
                 rows={5}
                 required
-              />
               />
             </div>
 
@@ -310,7 +219,6 @@ export const Testimonials: React.FC = () => {
           </form>
         </Card>
       </section>
-      */}
     </div>
   );
 };
