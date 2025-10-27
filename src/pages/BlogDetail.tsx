@@ -3,9 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Calendar } from "lucide-react";
 import { useEffect } from "react";
-import BigMoveImg from "@/assets/bigmove.png";
+import BigMoveImg from "@/assets/bigmove.jpg";
 import Staging from "@/assets/staging.jpg";
 import Move from "@/assets/move.jpg";
+import relocation from "@/assets/office-relocation.jpg";
+import Fragile from "@/assets/fragile.jpg";
 
 const blogs = [
 	{
@@ -286,7 +288,7 @@ Verify that phones, internet, and equipment are functioning properly.
 Acknowledge your team's hard work with a small celebration or team lunch.
 
 Our commercial moving specialists can handle every aspect of your office relocation. Request a consultation today!`,
-		images: ["/images/blogs/commercial1.jpg"],
+		images: [relocation],
 		date: "March 5, 2024",
 		author: "Moving United Team",
 	},
@@ -377,7 +379,7 @@ For valuable or extremely fragile items, professional packing services provide:
 - Peace of mind
 
 Contact us for professional packing services tailored to your needs!`,
-		images: ["/images/blogs/packing1.jpg"],
+		images: [Fragile],
 		date: "February 28, 2024",
 		author: "Michael Chen, Packing Specialist",
 	},
