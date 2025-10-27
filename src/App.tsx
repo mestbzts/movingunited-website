@@ -14,6 +14,7 @@ import BlogDetail from "./pages/BlogDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import BackToTopButton from "@/components/BackToTopButton";
+import FacebookPixel from '@/components/FacebookPixel';
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <FacebookPixel />
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
