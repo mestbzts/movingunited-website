@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import BackToTopButton from "@/components/BackToTopButton";
 import FacebookPixel from '@/components/FacebookPixel';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const queryClient = new QueryClient();
 
