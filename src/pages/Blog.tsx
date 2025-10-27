@@ -133,27 +133,6 @@ const Blog = () => {
 					))}
 				</div>
 			</section>
-
-			{/* Newsletter Section */}
-			<section className="py-20 bg-muted">
-				<div className="container mx-auto px-4">
-					<div className="max-w-2xl mx-auto text-center">
-						<h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-						<p className="text-muted-foreground mb-8">
-							Subscribe to our newsletter for the latest moving tips, guides, and
-							special offers.
-						</p>
-						<div className="flex gap-4 max-w-md mx-auto">
-							<input
-								type="email"
-								placeholder="Enter your email"
-								className="flex-1 px-4 py-2 rounded-md border bg-background"
-							/>
-							<Button>Subscribe</Button>
-						</div>
-					</div>
-				</div>
-			</section>
 			<BackToTopButton />
 		</div>
 	);
