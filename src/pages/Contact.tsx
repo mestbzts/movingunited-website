@@ -11,64 +11,64 @@ const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      firstName: formData.get('firstName') as string,
-      lastName: formData.get('lastName') as string,
-      email: formData.get('email') as string,
-      phone: formData.get('phone') as string,
-      currentAddress: formData.get('currentAddress') as string,
-      newAddress: formData.get('newAddress') as string,
-      moveDate: formData.get('moveDate') as string,
-      serviceType: formData.get('serviceType') as string,
-      additionalDetails: formData.get('additionalDetails') as string,
-    };
+  const formData = new FormData(e.currentTarget);
 
-    try {
-      // Using a simple mailto approach for now - you can replace with EmailJS or other service
-      const subject = `Moving Quote Request from ${data.firstName} ${data.lastName}`;
-      const body = `
-New Moving Quote Request:
+  // Build payload for Formspree
+  const payload = {
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    currentAddress: formData.get("currentAddress"),
+    newAddress: formData.get("newAddress"),
+    moveDate: formData.get("moveDate"),
+    serviceType: formData.get("serviceType"),
+    additionalDetails: formData.get("additionalDetails"),
+    _subject: "New Moving Quote from Website",
+  };
 
-Name: ${data.firstName} ${data.lastName}
-Email: ${data.email}
-Phone: ${data.phone}
-Current Address: ${data.currentAddress}
-New Address: ${data.newAddress}
-Move Date: ${data.moveDate}
-Service Type: ${data.serviceType}
-Additional Details: ${data.additionalDetails}
+  try {
+    const res = await fetch("https://formspree.io/f/xdkpager", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
 
-Submitted on: ${new Date().toLocaleString()}
-      `.trim();
+    const data = await res.json();
 
-      // Create mailto link
-      const mailtoLink = `mailto:info@movingunited.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      
-      // Open email client
-      window.open(mailtoLink);
-      
+    if (res.ok) {
       toast({
-        title: "Quote Request Prepared!",
-        description: "Your email client should open with the quote details. Please send the email to complete your request.",
+        title: "Request sent ✅",
+        description: "Thank you! We received your quote request and will reply soon.",
       });
-
-      // Reset form
       e.currentTarget.reset();
-    } catch (error) {
+    } else {
+      // Formspree can send errors in data.errors
       toast({
         title: "Error",
-        description: "There was an error preparing your quote request. Please try again.",
+        description:
+          data?.errors?.[0]?.message || "There was an error submitting the form.",
         variant: "destructive",
       });
-    } finally {
-      setIsSubmitting(false);
     }
-  };
+  } catch (error) {
+    toast({
+      title: "Network error",
+      description: "Could not send your request. Please try again.",
+      variant: "destructive",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const contactInfo = [
     {
