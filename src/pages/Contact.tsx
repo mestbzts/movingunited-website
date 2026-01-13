@@ -22,6 +22,34 @@ const Contact = () => {
     // add a subject field for Formspree
     fd.set("_subject", "New Moving Quote from Website");
 
+    // If offline, provide a mailto fallback immediately
+    if (typeof navigator !== "undefined" && !navigator.onLine) {
+      toast({
+        title: "Offline",
+        description: "You appear to be offline. Opening your email client so you can send the request manually.",
+      });
+      const mailto = (() => {
+        const subject = "New Moving Quote from Website";
+        const get = (k: string) => String(fd.get(k) ?? "");
+        const body = [
+          `Name: ${get("firstName")} ${get("lastName")}`,
+          `Email: ${get("email")}`,
+          `Phone: ${get("phone")}`,
+          `Current Address: ${get("currentAddress")}`,
+          `New Address: ${get("newAddress")}`,
+          `Move Date: ${get("moveDate")}`,
+          `Service Type: ${get("serviceType")}`,
+          `Additional Details: ${get("additionalDetails")}`,
+          "",
+          `Submitted on: ${new Date().toLocaleString()}`,
+        ].join("\n");
+        return `mailto:info@movingunited.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      })();
+      window.open(mailto);
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const res = await fetch("https://formspree.io/f/xdkpager", {
         method: "POST",
@@ -66,6 +94,29 @@ const Contact = () => {
         description: message || "Could not send your request. Please try again.",
         variant: "destructive",
       });
+
+      // fallback: open mailto with the form data so user can send manually
+      try {
+        const subject = "New Moving Quote from Website";
+        const get = (k: string) => String(fd.get(k) ?? "");
+        const body = [
+          `Name: ${get("firstName")} ${get("lastName")}`,
+          `Email: ${get("email")}`,
+          `Phone: ${get("phone")}`,
+          `Current Address: ${get("currentAddress")}`,
+          `New Address: ${get("newAddress")}`,
+          `Move Date: ${get("moveDate")}`,
+          `Service Type: ${get("serviceType")}`,
+          `Additional Details: ${get("additionalDetails")}`,
+          "",
+          `Submitted on: ${new Date().toLocaleString()}`,
+        ].join("\n");
+        const mailto = `mailto:info@movingunited.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.open(mailto);
+      } catch (mailtoErr) {
+        // ignore mailto fallback errors, already informed user via toast
+        // console.error(mailtoErr);
+      }
     } finally {
       setIsSubmitting(false);
     }
