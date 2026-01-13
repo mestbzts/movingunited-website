@@ -104,6 +104,19 @@ const Blog = () => {
 						<Card
 							key={blog.id}
 							className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
+							role="button"
+							tabIndex={0}
+							onClick={() => {
+								window.scrollTo(0, 0);
+								navigate(`/blog/${blog.id}`);
+							}}
+							onKeyDown={(e) => {
+								if (e.key === "Enter" || e.key === " ") {
+									e.preventDefault();
+									window.scrollTo(0, 0);
+									navigate(`/blog/${blog.id}`);
+								}
+							}}
 						>
 							{blog.images && blog.images[0] && (
 								<img
@@ -122,7 +135,10 @@ const Blog = () => {
 								</p>
 								<Link
 									to={`/blog/${blog.id}`}
-									onClick={() => window.scrollTo(0, 0)}
+									onClick={(e) => {
+										e.stopPropagation();
+										window.scrollTo(0, 0);
+									}}
 									className="mt-auto text-primary font-semibold underline text-sm text-left"
 									style={{ width: "fit-content" }}
 								>
