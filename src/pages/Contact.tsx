@@ -15,8 +15,10 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Capture the form element immediately to avoid React SyntheticEvent pooling issues
+    const form = e.currentTarget as HTMLFormElement;
     // Use FormData for the POST (matches native form submit and Formspree expectations)
-    const fd = new FormData(e.currentTarget);
+    const fd = new FormData(form);
     // add a subject field for Formspree
     fd.set("_subject", "New Moving Quote from Website");
 
@@ -44,9 +46,10 @@ const Contact = () => {
           title: "Request sent ✅",
           description: "Thank you! We received your quote request and will reply soon.",
         });
-        e.currentTarget.reset();
+        form.reset();
       } else {
         // Prefer server messages when available
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const parsed: any = data as any;
         const serverMessage =
           parsed?.errors?.[0]?.message || parsed?.error || parsed?.message || `Status ${res.status}`;
