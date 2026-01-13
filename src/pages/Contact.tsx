@@ -11,64 +11,76 @@ const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  const formData = new FormData(e.currentTarget);
+    const formData = new FormData(e.currentTarget);
 
-  // Build payload for Formspree
-  const payload = {
-    firstName: formData.get("firstName"),
-    lastName: formData.get("lastName"),
-    email: formData.get("email"),
-    phone: formData.get("phone"),
-    currentAddress: formData.get("currentAddress"),
-    newAddress: formData.get("newAddress"),
-    moveDate: formData.get("moveDate"),
-    serviceType: formData.get("serviceType"),
-    additionalDetails: formData.get("additionalDetails"),
-    _subject: "New Moving Quote from Website",
-  };
+    // Build payload for Formspree
+    const payload = {
+      firstName: formData.get("firstName"),
+      lastName: formData.get("lastName"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      currentAddress: formData.get("currentAddress"),
+      newAddress: formData.get("newAddress"),
+      moveDate: formData.get("moveDate"),
+      serviceType: formData.get("serviceType"),
+      additionalDetails: formData.get("additionalDetails"),
+      _subject: "New Moving Quote from Website",
+    };
 
-  try {
-    const res = await fetch("https://formspree.io/f/xdkpager", {
-      method: "POST",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      toast({
-        title: "Request sent ✅",
-        description: "Thank you! We received your quote request and will reply soon.",
+    try {
+      const res = await fetch("https://formspree.io/f/xdkpager", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       });
-      e.currentTarget.reset();
-    } else {
-      // Formspree can send errors in data.errors
+
+      // attempt to parse JSON; if parsing fails, data will be null
+      let data: any = null;
+      try {
+        data = await res.json();
+      } catch {
+        data = null;
+      }
+
+      // Consider success if HTTP status is OK (2xx) OR server JSON indicates ok/success
+      const success =
+        res.ok ||
+        (data && (data.ok === true || data.success === true || data.status === "success"));
+
+      if (success) {
+        toast({
+          title: "Request sent ✅",
+          description: "Thank you! We received your quote request and will reply soon.",
+        });
+        e.currentTarget.reset();
+      } else {
+        // Build a helpful error message from server response if available
+        const serverMessage =
+          data?.errors?.[0]?.message || data?.error || data?.message || (data && JSON.stringify(data));
+        toast({
+          title: "Error",
+          description: serverMessage || `There was an error submitting the form (status ${res.status}).`,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
       toast({
-        title: "Error",
-        description:
-          data?.errors?.[0]?.message || "There was an error submitting the form.",
+        title: "Network error",
+        description: message || "Could not send your request. Please try again.",
         variant: "destructive",
       });
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch (error) {
-    toast({
-      title: "Network error",
-      description: "Could not send your request. Please try again.",
-      variant: "destructive",
-    });
-  } finally {
-    setIsSubmitting(false);
-  }
-};
-
+  };
 
   const contactInfo = [
     {
@@ -111,11 +123,11 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium mb-2">First Name</label>
-                    <Input name="firstName" placeholder="John" required />
+                    <Input name="firstName" placeholder="EX:John" required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Last Name</label>
-                    <Input name="lastName" placeholder="Doe" required />
+                    <Input name="lastName" placeholder="EX:Stone" required />
                   </div>
                 </div>
 
@@ -126,7 +138,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Phone</label>
-                    <Input name="phone" type="tel" placeholder="(555) 123-4567" required />
+                    <Input name="phone" type="tel" placeholder="(xxx) xxx-xxxx" required />
                   </div>
                 </div>
 
@@ -137,7 +149,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">New Address</label>
-                    <Input name="newAddress" placeholder="456 New Ave" required />
+                    <Input name="newAddress" placeholder="456 lawrence Ave" required />
                   </div>
                 </div>
 
@@ -162,9 +174,9 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
                 <div>
                   <label className="block text-sm font-medium mb-2">Additional Details</label>
-                  <Textarea 
+                  <Textarea
                     name="additionalDetails"
-                    placeholder="Tell us about your move (size of home/office, special items, etc.)" 
+                    placeholder="Tell us about your move (size of home/office, list of items, elevator availability, etc.)"
                     rows={5}
                   />
                 </div>
