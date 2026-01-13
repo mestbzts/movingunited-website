@@ -15,63 +15,49 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-
-    // Build payload for Formspree
-    const payload = {
-      firstName: formData.get("firstName"),
-      lastName: formData.get("lastName"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      currentAddress: formData.get("currentAddress"),
-      newAddress: formData.get("newAddress"),
-      moveDate: formData.get("moveDate"),
-      serviceType: formData.get("serviceType"),
-      additionalDetails: formData.get("additionalDetails"),
-      _subject: "New Moving Quote from Website",
-    };
+    // Use FormData for the POST (matches native form submit and Formspree expectations)
+    const fd = new FormData(e.currentTarget);
+    // add a subject field for Formspree
+    fd.set("_subject", "New Moving Quote from Website");
 
     try {
       const res = await fetch("https://formspree.io/f/xdkpager", {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "Content-Type": "application/json",
+          // do NOT set Content-Type when sending FormData — browser sets the boundary
         },
-        body: JSON.stringify(payload),
+        body: fd,
       });
 
-      // attempt to parse JSON; if parsing fails, data will be null
-      let data: any = null;
+      // Try to parse JSON if provided
+      let data: unknown = null;
       try {
         data = await res.json();
       } catch {
         data = null;
       }
 
-      // Consider success if HTTP status is OK (2xx) OR server JSON indicates ok/success
-      const success =
-        res.ok ||
-        (data && (data.ok === true || data.success === true || data.status === "success"));
-
-      if (success) {
+      // Treat any 2xx HTTP status as success
+      if (res.ok) {
         toast({
           title: "Request sent ✅",
           description: "Thank you! We received your quote request and will reply soon.",
         });
         e.currentTarget.reset();
       } else {
-        // Build a helpful error message from server response if available
+        // Prefer server messages when available
+        const parsed: any = data as any;
         const serverMessage =
-          data?.errors?.[0]?.message || data?.error || data?.message || (data && JSON.stringify(data));
+          parsed?.errors?.[0]?.message || parsed?.error || parsed?.message || `Status ${res.status}`;
         toast({
           title: "Error",
-          description: serverMessage || `There was an error submitting the form (status ${res.status}).`,
+          description: serverMessage,
           variant: "destructive",
         });
       }
-    } catch (error) {
-      const message = error instanceof Error ? error.message : String(error);
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : String(err);
       toast({
         title: "Network error",
         description: message || "Could not send your request. Please try again.",
