@@ -170,55 +170,7 @@ export const Testimonials: React.FC = () => {
         </div>
       </section>
 
-      <section className="max-w-3xl mx-auto">
-        <Card className="p-8">
-          <h3 className="text-2xl font-bold mb-6">Share Your Experience</h3>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">Your Name</label>
-                <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="John Doe" required />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Email</label>
-                <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="john@example.com" />
-              </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium mb-2">Rating</label>
-              <div className="flex gap-2">
-                 {[1, 2, 3, 4, 5].map((star) => (
-                  <button
-                    type="button"
-                    key={star}
-                    aria-label={`Rate ${star}`}
-                    onClick={() => setRating(star)}
-                    className="p-1"
-                  >
-                    <Star className={`h-6 w-6 cursor-pointer ${star <= rating ? "text-primary fill-primary" : "text-muted-foreground"}`} />
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2">Your Comment</label>
-              <Textarea 
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-                placeholder="Tell us about your experience with Moving United..." 
-                rows={5}
-                required
-              />
-            </div>
-
-            <Button type="submit" size="lg" className="w-full">
-              Submit Comment
-            </Button>
-          </form>
-        </Card>
-      </section>
     </div>
   );
 };
