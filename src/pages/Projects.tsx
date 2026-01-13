@@ -1,7 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import TiffEventImg from "@/assets/Tiff-event.jpg";
 import luxuryHome from "@/assets/ilkin.jpeg";
@@ -10,18 +9,14 @@ import ChairsImg from "@/assets/Chairs-deliv.jpeg";
 import Windowss from "@/assets/windows-deliv.jpeg";
 import Furniturestore from "@/assets/furniture-store.jpeg";
 import phisio from "@/assets/phisio.jpg";
+import MTCC from "@/assets/mtcc-setup.jpeg";
+import { title } from "process";
 const Projects = () => {
-  const navigate = useNavigate();
 
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // Back to Top handler
-  const handleBackToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   const projects = [
     {
@@ -50,6 +45,15 @@ const Projects = () => {
       description: "Organized relocation of 150 chairs to Guelph University.",
       highlights: ["Loaded & Secured all chairs", "Delivered on time", "Assembled all chairs", "Placed all items according to plan"],
       images: [ChairsImg],
+    },
+    {
+      title: "MTCC delivery and setup",
+      type: "Commercial",
+      location: "Toronto, ON",
+      date: "April 2025",
+      description: "Delivered and set up furniture for the Metro Toronto Convention Centre.",
+      highlights: ["Timely delivery", "Professional setup", "Client satisfaction", "Attention to detail", "Seamless coordination"],
+      images: [MTCC],
     },
     {
       title: "Window and Frame Delivery",
@@ -99,14 +103,13 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
+              className="overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
               style={{
                 aspectRatio: "3/4",
                 minHeight: "520px", // slightly taller for more text
                 maxWidth: "400px",
                 margin: "0 auto"
               }}
-              onClick={() => navigate(`/projects/${index}`)}
             >
               {/* Show first image as preview */}
               {project.images && project.images[0] && (
