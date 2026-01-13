@@ -25,12 +25,12 @@ const Privacy = () => {
 
       <article className="container mx-auto px-4 py-12 max-w-3xl prose prose-lg">
         <p>
-         Effective Date: 2024-10-12
-         Last Updated: 2026-01-12
+         Effective Date: 2024-10-12 <br />
+         Last Updated: 2026-01-12 <br />
          Moving United (“we,” “our,” or “us”) is committed to protecting the privacy and confidentiality of personal information. This Privacy Policy explains how we collect, use, disclose, store, and safeguard personal information in accordance with Canada’s Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable Ontario laws.
          By accessing our website or using our services, you consent to the collection, use, and disclosure of your personal information as described in this Privacy Policy.
         </p>
-
+<br />
         <h2>Personal Information We Collect</h2>
         <p>
         We may collect personal information including, but not limited to:
