@@ -83,6 +83,15 @@ const Footer = () => {
                   Blog
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/privacy"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => handleNavTop("/privacy")}
+                >
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
