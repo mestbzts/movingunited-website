@@ -25,50 +25,92 @@ const Privacy = () => {
 
       <article className="container mx-auto px-4 py-12 max-w-3xl prose prose-lg">
         <p>
-          Moving United ("we", "us", or "our") is committed to protecting your privacy.
-          This Privacy Policy explains how we collect, use, disclose, and safeguard your information
-          when you visit our website or contact us for services.
+         Effective Date: 2024-10-12
+         Last Updated: 2026-01-12
+         Moving United (“we,” “our,” or “us”) is committed to protecting the privacy and confidentiality of personal information. This Privacy Policy explains how we collect, use, disclose, store, and safeguard personal information in accordance with Canada’s Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable Ontario laws.
+         By accessing our website or using our services, you consent to the collection, use, and disclosure of your personal information as described in this Privacy Policy.
         </p>
 
-        <h2>Information We Collect</h2>
+        <h2>Personal Information We Collect</h2>
         <p>
-          We may collect information you provide directly to us (for example, when requesting quotes or contacting us),
-          such as your name, email address, phone number, and move details. We may also collect usage information
-          automatically through cookies and similar technologies.
+        We may collect personal information including, but not limited to:
+        Full name
+        Phone number
+        Email address
+        Pickup and delivery addresses
+        Service details related to moving, furniture assembly, and furniture removal
+        Billing and payment information
+        Communications and correspondence with us
+        We may also collect non-personal information such as IP address, browser type, device information, and website usage data through cookies and analytics tools.
         </p>
 
-        <h2>How We Use Your Information</h2>
+        <h2>Purpose of Collection</h2>
         <p>
-          We use the information to respond to inquiries, provide services, process quotes, improve our website,
-          and communicate updates or promotional offers when you opt in.
+        Personal information is collected and used for the following purposes:
+        Providing and managing our services
+        Preparing quotes and scheduling services
+        Communicating service-related information
+        Processing payments and invoices
+        Improving operational efficiency and customer experience
+        Meeting legal, regulatory, and contractual obligations
+        Personal information will not be used for purposes beyond those identified without obtaining additional consent, unless permitted or required by law.
         </p>
 
-        <h2>Sharing & Disclosure</h2>
+        <h2>Consent Under PIPEDA</h2>
         <p>
-          We do not sell your personal information. We may share information with service providers who help us
-          operate our business (e.g., email providers) and when required by law.
+        In accordance with PIPEDA, consent may be express or implied depending on the circumstances. By providing personal information to Moving United, you consent to its collection, use, and disclosure for the purposes identified in this Privacy Policy. You may withdraw consent at any time, subject to legal or contractual restrictions, by contacting us.
         </p>
 
-        <h2>Cookies & Tracking</h2>
+        <h2>Disclosure of Personal Information</h2>
         <p>
-          Our site may use cookies to enhance user experience. You can manage cookie preferences in your browser settings.
+        Moving United does not sell, rent, or trade personal information.
+        Personal information may be disclosed only to:
+        Employees or contractors who require the information to perform services
+        Third-party service providers such as payment processors
+        Legal or regulatory authorities when required by law
+        All third parties are contractually required to protect personal information in a manner consistent with PIPEDA.
         </p>
 
-        <h2>Your Choices</h2>
+        <h2>Safeguards</h2>
         <p>
-          You can opt out of promotional communications by following the unsubscribe instructions in emails or contacting us directly.
+        We use reasonable administrative, technical, and physical safeguards to protect personal information against unauthorized access, loss, misuse, or disclosure, as required under PIPEDA.
+        </p>
+        
+        <h2>Retention of Information</h2>
+        <p>
+        Personal information is retained only for as long as necessary to fulfill the purposes for which it was collected and to comply with legal or regulatory requirements. When no longer required, information is securely destroyed or anonymized.
+        </p>
+        
+        <h2>Access and Accuracy</h2>
+        <p>
+        Under PIPEDA, individuals have the right to access their personal information and request corrections if it is inaccurate or incomplete. Requests must be made in writing using the contact information below.
         </p>
 
-        <h2>Contact Us</h2>
+        <h2>Cookies and Website Analyticss</h2>
         <p>
-          If you have questions about this policy, contact us at{" "}
-          <a href="mailto:info@movingunited.ca" className="underline hover:text-primary">info@movingunited.ca</a> or call{" "}
-          <a href="tel:4375058275" className="underline hover:text-primary">(437) 505-8275</a>.
+        Our website may use cookies to enhance functionality and analyze website usage. You may disable cookies through your browser settings, though this may affect website performance.        
+        </p>
+
+        <h2>Third-Party Websites</h2>
+        <p>
+        Our website may contain links to third-party websites. Moving United is not responsible for the privacy practices or content of those websites. We encourage you to review the privacy policies of any third-party websites you visit.
+        </p>
+
+        <h2>Children’s Privacy</h2>
+        <p>
+        Our services are not intended for individuals under the age of 13. We do not knowingly collect personal information from children.
         </p>
 
         <h2>Changes to This Policy</h2>
         <p>
-          We may update this Privacy Policy from time to time. We will post the updated date at the top of this page.
+        This Privacy Policy may be updated from time to time. Any changes will be posted on this page with a revised effective date.
+        </p>
+
+        <h2>Contact Us</h2>
+        <p>
+        For privacy inquiries, access requests, or complaints under PIPEDA, please contact:{" "}
+        <a href="mailto:info@movingunited.ca" className="underline hover:text-primary">info@movingunited.ca</a> or call{" "}
+        <a href="tel:4375058275" className="underline hover:text-primary">(437) 505-8275</a>.
         </p>
 
         <div className="mt-8">

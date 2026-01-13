@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import BackToTopButton from "@/components/BackToTopButton";
 import FacebookPixel from '@/components/FacebookPixel';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Privacy from "./pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogDetail />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
