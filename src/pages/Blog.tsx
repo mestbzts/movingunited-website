@@ -9,7 +9,7 @@ import BigMoveImg from "@/assets/bigmove.jpg";
 import Staging from "@/assets/staging.jpg";
 import Move from "@/assets/move.jpg";
 import Fragile from "@/assets/fragile.jpg";
-import Office from "@/assets/office-relocation-2.jpg";
+import Office from "@/assets/office.jpg";
 
 const blogs = [
 	{
