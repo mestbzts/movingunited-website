@@ -70,11 +70,10 @@ const Contact = () => {
 
       // Treat any 2xx HTTP status as success
       if (res.ok) {
-        toast({
-          title: "Request sent ✅",
-          description: "Thank you! We received your quote request and will reply soon.",
-        });
-        form.reset();
+        // Redirect to thank-you page (full reload) so the browser shows:
+        // https://www.movingunited.ca/contact-thankyou
+        // Using window.location.href ensures a reload to that path.
+        window.location.href = `${window.location.origin}/contact-thankyou`;
       } else {
         // Prefer server messages when available
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
