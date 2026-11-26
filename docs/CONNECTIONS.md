@@ -11,12 +11,11 @@ then redeploy. Never commit them to this repository.
 5. The token lasts 60 days. Refresh it before then and update the variable.
 
 ## Google reviews
-1. Claim or create the Google Business Profile.
-2. In Google Cloud, enable billing and "Places API (New)" and create an API key.
+1. In Google Cloud, enable billing and "Places API (New)" and create an API key.
    Restrict the key to that API and set a daily quota and budget alert.
-3. Find the Place ID with Google's Place ID Finder.
-4. Add `GOOGLE_PLACES_API_KEY` and `GOOGLE_PLACE_ID`.
-5. Google requires public Terms of Use and a Privacy Policy that cover its terms.
+2. Add `GOOGLE_PLACES_API_KEY`. The Place ID is set in `api/google-reviews.js`;
+   if Google rejects it, find the right one and add it as `GOOGLE_PLACE_ID`.
+3. Google requires public Terms of Use and a Privacy Policy that cover its terms.
 
 ## HomeStars
 Put the public profile address in `src/reviewLinks.ts`.

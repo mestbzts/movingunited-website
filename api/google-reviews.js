@@ -1,11 +1,12 @@
 // Server function: reads reviews from the Google Places API.
-// Needs GOOGLE_PLACES_API_KEY and GOOGLE_PLACE_ID in Vercel.
+// Needs GOOGLE_PLACES_API_KEY in Vercel. GOOGLE_PLACE_ID optionally replaces the ID below.
 // Google does not allow review content to be stored or cached, so responses are not cached.
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
   const key = process.env.GOOGLE_PLACES_API_KEY;
-  const placeId = process.env.GOOGLE_PLACE_ID;
-  if (!key || !placeId) return res.status(200).json({ reviews: [] });
+  // Worked out from the business's Google Maps share link.
+  const placeId = process.env.GOOGLE_PLACE_ID || "ChIJfeufLfJFfgURSgz610Dmgh4";
+  if (!key) return res.status(200).json({ reviews: [] });
 
   try {
     const response = await fetch(

@@ -5,7 +5,7 @@ import { ArrowRight, Package, Building2, Warehouse, CheckCircle, Phone, FileText
 import InstagramFeedCarousel from "@/components/InstagramFeedCarousel";
 import Testimonials from "@/components/Testimonials";
 import GoogleReviews from "@/components/GoogleReviews";
-import HomeStarsLink from "@/components/HomeStarsLink";
+import ReviewLinks from "@/components/ReviewLinks";
 import heroImage from "@/assets/hero-moving.jpg";
 import residentialImage from "@/assets/residential-moving.jpg";
 import commercialImage from "@/assets/commercial-moving.jpg";
@@ -247,7 +247,7 @@ const Home = () => {
         </div>
       </section>
       <GoogleReviews />
-      <HomeStarsLink />
+      <ReviewLinks />
       <BackToTopButton />
     </div>
   );
