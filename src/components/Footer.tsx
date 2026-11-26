@@ -3,6 +3,7 @@ import { Phone, Mail, Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/moving-united-logo.png";
 import { useCallback } from "react";
 import GoogleTag from "@/components/GoogleTag";
+import { areas } from "@/areas";
 
 const Footer = () => {
   // Scroll to top and then navigate
@@ -129,6 +130,25 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
+          </div>
+
+          <div className="border-t mt-8 pt-8">
+            <h3 className="font-semibold mb-4">
+              <Link to="/service-areas" onClick={() => handleNavTop("/service-areas")}>Areas We Serve</Link>
+            </h3>
+            <ul className="flex flex-wrap gap-x-4 gap-y-2">
+              {areas.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    to={`/service-areas/${area.slug}`}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => handleNavTop(`/service-areas/${area.slug}`)}
+                  >
+                    {area.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">

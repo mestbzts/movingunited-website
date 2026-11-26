@@ -18,6 +18,8 @@ import FacebookPixel from '@/components/FacebookPixel';
 import Privacy from "./pages/Privacy";
 import ContactThankYou from "@/pages/ContactThankYou";
 import Seo from "@/components/Seo";
+import ServiceAreas from "./pages/ServiceAreas";
+import AreaDetail from "./pages/AreaDetail";
 import type { ReactNode } from "react";
 
 const queryClient = new QueryClient();
@@ -37,6 +39,8 @@ export const AppContent = ({ router }: { router: (children: ReactNode) => ReactN
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/service-areas" element={<ServiceAreas />} />
+              <Route path="/service-areas/:slug" element={<AreaDetail />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogDetail />} />

@@ -9,6 +9,7 @@ import residentialImage from "@/assets/residential-moving.jpg";
 import commercialImage from "@/assets/commercial-moving.jpg";
 import storageImage from "@/assets/storage-services.jpg";
 import BackToTopButton from "@/components/BackToTopButton";
+import { areas } from "@/areas";
 
 const Home = () => {
   const services = [
@@ -88,7 +89,7 @@ const Home = () => {
             <span className="block text-white">Your Move, Our Mission</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            Professional moving services in Toronto and the GTA for homes and businesses. 
+            Professional moving services for homes and businesses in Toronto, York Region and nearby. 
             We handle your belongings with care.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -179,6 +180,22 @@ const Home = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-8">Areas We Serve</h2>
+          <ul className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+            {areas.map((area) => (
+              <li key={area.slug}>
+                <Button variant="outline" asChild>
+                  <Link to={`/service-areas/${area.slug}`}>{area.name}</Link>
+                </Button>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

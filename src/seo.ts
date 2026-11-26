@@ -1,4 +1,6 @@
 // Page titles and descriptions used by the browser and by the pre-render step.
+import { areas } from "./areas";
+
 export const SITE_URL = "https://www.movingunited.ca";
 
 export type PageMeta = {
@@ -13,7 +15,7 @@ export const pages: PageMeta[] = [
     path: "/",
     title: "Movers in Toronto & the GTA | Moving United",
     description:
-      "Residential and commercial movers in Toronto and the GTA, plus staging, furniture assembly and disposal. Get a free quote from Moving United.",
+      "Movers for homes and businesses in Toronto, York Region, Mississauga and nearby. Staging, furniture assembly and disposal. Get a free quote.",
   },
   {
     path: "/about",
@@ -27,6 +29,17 @@ export const pages: PageMeta[] = [
     description:
       "Residential moving, commercial moving, office relocation, staging, furniture assembly and disposal services in Toronto and the GTA.",
   },
+  {
+    path: "/service-areas",
+    title: "Areas We Serve in the GTA | Moving United",
+    description:
+      "Moving United serves Toronto, Mississauga, Vaughan, Markham, Richmond Hill, Newmarket, Orangeville and nearby communities.",
+  },
+  ...areas.map((area) => ({
+    path: `/service-areas/${area.slug}`,
+    title: `Movers in ${area.name} | Moving United`,
+    description: `${area.summary} Request a free quote from Moving United.`,
+  })),
   {
     path: "/projects",
     title: "Recent Moving & Staging Projects | Moving United",
