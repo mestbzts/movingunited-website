@@ -2,8 +2,5 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    { "source": "/Contact", "destination": "/contact", "permanent": true }
-  ]
+  "trailingSlash": false
 }
