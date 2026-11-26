@@ -12,9 +12,6 @@ const Privacy = () => {
       <section className="bg-gradient-to-r from-primary to-secondary text-primary-foreground py-12">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Privacy Policy</h1>
-          <p className="text-sm text-muted-foreground">
-            Last updated: {new Date().toLocaleDateString()}
-          </p>
           <div className="mt-4">
             <Link to="/" className="text-primary underline">Home</Link>
             <span className="mx-2">/</span>

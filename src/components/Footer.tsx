@@ -101,27 +101,27 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold mb-4"><Link to="/services" onClick={() => handleNavTop("/services")}> Services</Link></h3>
               <ul className="space-y-2">
-                <li className="text-sm text-muted-foreground">Residential Moving</li>
-                <li className="text-sm text-muted-foreground">Commercial Moving</li>
-                <li className="text-sm text-muted-foreground">Office Relocation</li>
-                <li className="text-sm text-muted-foreground">Staging</li>
-                <li className="text-sm text-muted-foreground">Furniture Assembly</li>
-                <li className="text-sm text-muted-foreground">Disposal Services</li>
+                <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors" onClick={() => handleNavTop("/services")}>Residential Moving</Link></li>
+                <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors" onClick={() => handleNavTop("/services")}>Commercial Moving</Link></li>
+                <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors" onClick={() => handleNavTop("/services")}>Office Relocation</Link></li>
+                <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors" onClick={() => handleNavTop("/services")}>Staging</Link></li>
+                <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors" onClick={() => handleNavTop("/services")}>Furniture Assembly</Link></li>
+                <li><Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors" onClick={() => handleNavTop("/services")}>Disposal Services</Link></li>
               </ul>
             </div>
 
             <div>
               <h3 className="font-semibold mb-4">
-                <Link to="/Contact" onClick={() => handleNavTop("/Contact")}> Contact Us</Link>
+                <Link to="/contact" onClick={() => handleNavTop("/contact")}> Contact Us</Link>
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Phone className="h-4 w-4" />
-                  <span>437-505-8275</span>
+                  <a href="tel:+14375058275" className="hover:text-primary">437-505-8275</a>
                 </li>
                 <li className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Mail className="h-4 w-4" />
-                  <span>info@movingunited.ca</span>
+                  <a href="mailto:info@movingunited.ca" className="hover:text-primary">info@movingunited.ca</a>
                 </li>
                 <li className="text-sm text-muted-foreground">
                   Mon-Fri: 8am - 8pm<br />

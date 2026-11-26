@@ -5,7 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode, isSsrBuild }) => ({
+  // Bundle dependencies into the build-time renderer.
+  ssr: isSsrBuild ? { noExternal: true } : undefined,
   server: {
     historyApiFallback: true,
     host: "::",

@@ -10,7 +10,6 @@ import Windowss from "@/assets/windows-deliv.jpeg";
 import Furniturestore from "@/assets/furniture-store.jpeg";
 import phisio from "@/assets/phisio.jpg";
 import MTCC from "@/assets/mtcc-setup.jpeg";
-import { title } from "process";
 const Projects = () => {
 
   // Scroll to top on mount

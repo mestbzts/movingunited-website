@@ -65,7 +65,7 @@ const Home = () => {
     "24/7 Customer Support",
     "Competitive Pricing",
     "Free Estimates",
-    "disassembly & reassembly Services",
+    "Disassembly & Reassembly Services",
     "Insured Moves",
   ];
 
@@ -88,7 +88,7 @@ const Home = () => {
             <span className="block text-white">Your Move, Our Mission</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            Professional moving services for residential and commercial needs. 
+            Professional moving services in Toronto and the GTA for homes and businesses. 
             We handle your belongings with care.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
