@@ -83,7 +83,7 @@ const Home = () => {
         />
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-center leading-tight mb-8 text-white">
-            Moving United
+            Moving United{" "}
             <br className="hidden sm:block" />
             <span className="block text-white">Your Move, Our Mission</span>
           </h1>
