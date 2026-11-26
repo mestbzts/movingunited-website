@@ -89,6 +89,13 @@ const Privacy = () => {
         Our website may use cookies to enhance functionality and analyze website usage. You may disable cookies through your browser settings, though this may affect website performance.        
         </p>
 <br />
+        <h2>Google Reviews and Instagram</h2>
+        <p>
+        Our website may display reviews from Google Maps and posts from Instagram. Images in these sections load from Google and Instagram, which may receive technical information such as your IP address. Google Maps content is subject to the{" "}
+        <a href="https://maps.google.com/help/terms_maps/" className="underline hover:text-primary">Google Maps Terms of Service</a> and the{" "}
+        <a href="https://policies.google.com/privacy" className="underline hover:text-primary">Google Privacy Policy</a>.
+        </p>
+<br />
         <h2>Third-Party Websites</h2>
         <p>
         Our website may contain links to third-party websites. Moving United is not responsible for the privacy practices or content of those websites. We encourage you to review the privacy policies of any third-party websites you visit.

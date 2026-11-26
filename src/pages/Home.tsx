@@ -4,6 +4,8 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight, Package, Building2, Warehouse, CheckCircle, Phone, FileText, Truck, Wrench, MapPin, Instagram } from "lucide-react";
 import InstagramFeedCarousel from "@/components/InstagramFeedCarousel";
 import Testimonials from "@/components/Testimonials";
+import GoogleReviews from "@/components/GoogleReviews";
+import HomeStarsLink from "@/components/HomeStarsLink";
 import heroImage from "@/assets/hero-moving.jpg";
 import residentialImage from "@/assets/residential-moving.jpg";
 import commercialImage from "@/assets/commercial-moving.jpg";
@@ -244,6 +246,8 @@ const Home = () => {
           <Testimonials />
         </div>
       </section>
+      <GoogleReviews />
+      <HomeStarsLink />
       <BackToTopButton />
     </div>
   );
