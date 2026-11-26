@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import ElfsightReviews from "@/components/ElfsightReviews";
 import { GOOGLE_MAPS_URL, HOMESTARS_PROFILE_URL } from "@/reviewLinks";
 
 // Addresses are set in src/reviewLinks.ts.
@@ -9,7 +10,8 @@ const links = [
 
 const ReviewLinks = () => (
   <section className="py-12 container mx-auto px-4 text-center">
-    <h2 className="text-3xl font-bold mb-4">Find Our Reviews</h2>
+    <h2 className="text-3xl font-bold mb-4">Our Reviews</h2>
+    <ElfsightReviews />
     <div className="flex flex-wrap justify-center gap-4">
       {links.map((link) => (
         <Button key={link.url} size="lg" asChild>

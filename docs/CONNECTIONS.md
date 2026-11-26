@@ -17,6 +17,9 @@ then redeploy. Never commit them to this repository.
    if Google rejects it, find the right one and add it as `GOOGLE_PLACE_ID`.
 3. Google requires public Terms of Use and a Privacy Policy that cover its terms.
 
+## Reviews widget
+The Elfsight widget is in `src/components/ElfsightReviews.tsx`. Choose its review sources in the
+Elfsight dashboard. If it shows Google reviews, the Google API setup above is not needed.
+
 ## HomeStars
 The profile address is set in `src/reviewLinks.ts`.
-HomeStars' own review widget is offered to upgraded accounts (Dashboard > Toolkit).
