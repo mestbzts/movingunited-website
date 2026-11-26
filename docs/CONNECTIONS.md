@@ -18,5 +18,5 @@ then redeploy. Never commit them to this repository.
 3. Google requires public Terms of Use and a Privacy Policy that cover its terms.
 
 ## HomeStars
-Put the public profile address in `src/reviewLinks.ts`.
+The profile address is set in `src/reviewLinks.ts`.
 HomeStars' own review widget is offered to upgraded accounts (Dashboard > Toolkit).

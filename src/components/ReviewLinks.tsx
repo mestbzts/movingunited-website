@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { GOOGLE_MAPS_URL, HOMESTARS_PROFILE_URL } from "@/reviewLinks";
 
-// The HomeStars button stays hidden until its profile address is filled in.
+// Addresses are set in src/reviewLinks.ts.
 const links = [
   { label: "See us on Google", url: GOOGLE_MAPS_URL },
   { label: "See us on HomeStars", url: HOMESTARS_PROFILE_URL },
