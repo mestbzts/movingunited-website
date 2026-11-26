@@ -12,9 +12,6 @@ const Privacy = () => {
       <section className="bg-gradient-to-r from-primary to-secondary text-primary-foreground py-12">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Privacy Policy</h1>
-          <p className="text-sm text-muted-foreground">
-            Last updated: {new Date().toLocaleDateString()}
-          </p>
           <div className="mt-4">
             <Link to="/" className="text-primary underline">Home</Link>
             <span className="mx-2">/</span>
@@ -90,6 +87,13 @@ const Privacy = () => {
         <h2>Cookies and Website Analytics</h2>
         <p>
         Our website may use cookies to enhance functionality and analyze website usage. You may disable cookies through your browser settings, though this may affect website performance.        
+        </p>
+<br />
+        <h2>Google Reviews and Instagram</h2>
+        <p>
+        Our website may display reviews from Google Maps and posts from Instagram. Images in these sections load from Google and Instagram, which may receive technical information such as your IP address. Google Maps content is subject to the{" "}
+        <a href="https://maps.google.com/help/terms_maps/" className="underline hover:text-primary">Google Maps Terms of Service</a> and the{" "}
+        <a href="https://policies.google.com/privacy" className="underline hover:text-primary">Google Privacy Policy</a>.
         </p>
 <br />
         <h2>Third-Party Websites</h2>

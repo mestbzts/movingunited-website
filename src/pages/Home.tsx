@@ -4,11 +4,14 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight, Package, Building2, Warehouse, CheckCircle, Phone, FileText, Truck, Wrench, MapPin, Instagram } from "lucide-react";
 import InstagramFeedCarousel from "@/components/InstagramFeedCarousel";
 import Testimonials from "@/components/Testimonials";
+import GoogleReviews from "@/components/GoogleReviews";
+import ReviewLinks from "@/components/ReviewLinks";
 import heroImage from "@/assets/hero-moving.jpg";
 import residentialImage from "@/assets/residential-moving.jpg";
 import commercialImage from "@/assets/commercial-moving.jpg";
 import storageImage from "@/assets/storage-services.jpg";
 import BackToTopButton from "@/components/BackToTopButton";
+import { areas } from "@/areas";
 
 const Home = () => {
   const services = [
@@ -65,7 +68,7 @@ const Home = () => {
     "24/7 Customer Support",
     "Competitive Pricing",
     "Free Estimates",
-    "disassembly & reassembly Services",
+    "Disassembly & Reassembly Services",
     "Insured Moves",
   ];
 
@@ -83,12 +86,12 @@ const Home = () => {
         />
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-center leading-tight mb-8 text-white">
-            Moving United
+            Moving United{" "}
             <br className="hidden sm:block" />
             <span className="block text-white">Your Move, Our Mission</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            Professional moving services for residential and commercial needs. 
+            Professional moving services for homes and businesses in Toronto, York Region and nearby. 
             We handle your belongings with care.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -182,6 +185,22 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Service Areas */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-8">Areas We Serve</h2>
+          <ul className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+            {areas.map((area) => (
+              <li key={area.slug}>
+                <Button variant="outline" asChild>
+                  <Link to={`/service-areas/${area.slug}`}>{area.name}</Link>
+                </Button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 container mx-auto px-4">
         <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-12 text-center text-white">
@@ -227,6 +246,8 @@ const Home = () => {
           <Testimonials />
         </div>
       </section>
+      <GoogleReviews />
+      <ReviewLinks />
       <BackToTopButton />
     </div>
   );
